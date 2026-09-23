@@ -47,6 +47,12 @@
         nav.main { display: flex; gap: 25px; }
         nav.main a { font-size: 16px; transition: color 0.3s ease; }
         nav.main a:hover { color: #888888; }
+        
+        /* Estilo para la página actual en la navegación */
+        nav.main a.active {
+            font-family: 'Alte Haas Grotesk Bold', sans-serif;
+            font-weight: normal;
+        }
 
         /* --- SECCIÓN DE CONTACTO (Centrada) --- */
         .contentWrapper {
@@ -118,9 +124,10 @@
                     <span class="brand-title">— Cinematographer</span>
                 </a>
                 <nav class="main">
+                    <a href="index.html">Home</a>
                     <a href="cine.html">Features</a>
                     <a href="comerciales.html">Commercials</a>
-                    <a href="contacto.html">Contact</a>
+                    <a href="contacto.html" class="active">Contact</a>
                 </nav>
             </div>
         </header>
@@ -137,7 +144,7 @@
         <footer class="divider" id="contacto">
             <div class="container">
                 <p class="footer-credit">
-                    <strong>Website Design:</strong> Colectivo Monclova
+                    <strong>Diseño de sitio web</strong>, Taller Monclova
                 </p>
             </div>
         </footer>
