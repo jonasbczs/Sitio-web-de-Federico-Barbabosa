@@ -3,217 +3,97 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-    <title>Monclova</title>
+    <title>Publicidad | Federico Barbabosa</title>
     
     <style>
+        /* --- DECLARACIÓN DE LA TIPOGRAFÍA PERSONALIZADA --- */
+        @font-face {
+            font-family: 'Alte Haas Grotesk Bold';
+            src: url('AlteHaasGroteskBold.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         /* --- ESTILOS BASE --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            color: #000000;
-            background-color: #ffffff;
-            font-size: 14px;
-            line-height: 1.4;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #000000; background-color: #ffffff; font-size: 14px; line-height: 1.4; -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; }
+        
         /* --- LIMITADOR DE ANCHO PARA PANTALLAS GRANDES --- */
-        .page-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background-color: #ffffff;
+        .page-container { max-width: 1400px; margin: 0 auto; background-color: #ffffff; }
+        
+        /* --- CABECERA FIJA --- */
+        .main-header { position: sticky; top: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); padding: 25px 40px; z-index: 1000; }
+        .main-header .container { display: flex; justify-content: space-between; align-items: baseline; max-width: 1400px; margin: 0 auto; }
+        
+        /* --- TIPOGRAFÍA DEL LOGO --- */
+        .logo { 
+            font-family: 'Alte Haas Grotesk Bold', sans-serif; 
+            font-size: 22px; 
+            font-weight: normal; 
+            letter-spacing: -0.5px; 
+            text-transform: none; 
         }
 
-        /* --- CABECERA FIJA --- */
-        .main-header {
-            position: sticky;
+        nav.main { display: flex; gap: 25px; }
+        nav.main a { font-size: 16px; text-transform: lowercase; transition: color 0.3s ease; }
+        nav.main a:hover { color: #888888; }
+        
+        /* --- SECCIÓN DE GALERÍA DE VIDEOS (Publicidad) --- */
+        .grid-container { padding: 40px 40px; margin-bottom: 100px; }
+        
+        .year-header { 
+            border-bottom: 1px solid #000; 
+            padding-bottom: 10px; 
+            margin-top: 40px; 
+            margin-bottom: 40px; 
+            font-size: 18px; 
+            font-weight: normal; 
+        }
+
+        .entries-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 80px 40px; }
+        
+        .entry { display: block; }
+        
+        /* Contenedor 16:9 para incrustar iframes de Vimeo cómodamente */
+        .entry .video-placeholder { 
+            width: 100%; 
+            aspect-ratio: 16 / 9; 
+            background-color: #f2f2f2; 
+            margin-bottom: 15px; 
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 12px;
+        }
+
+        /* Regla para cuando insertes el iframe de Vimeo */
+        .entry .video-placeholder iframe {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 25px 40px;
-            z-index: 1000;
-        }
-
-        .main-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-            letter-spacing: -0.5px;
-            text-transform: lowercase;
-        }
-
-        nav.main {
-            display: flex;
-            gap: 25px;
-        }
-
-        nav.main a {
-            font-size: 13px;
-            text-transform: lowercase;
-            transition: color 0.3s ease;
-        }
-
-        nav.main a:hover {
-            color: #888888;
-        }
-
-        /* --- BANNER PRINCIPAL (Hero) --- */
-        .full-width-banner {
-            position: relative;
-            width: 100%;
-            height: 75vh; /* Ligeramente más corto para que asomen los proyectos */
-            background-color: #111;
-            margin-bottom: 80px;
-        }
-
-        .full-width-banner figure {
-            width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
-            margin: 0;
-            /* El gradiente asegura que el texto blanco siempre se lea */
-            background-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 30%), url('https://picsum.photos/seed/monclovacine/1920/1080?grayscale');
+            border: none;
         }
 
-        .full-width-banner figcaption {
-            position: absolute;
-            bottom: 40px;
-            left: 40px;
-            color: #ffffff;
-        }
-
-        .image-title {
-            font-size: 28px;
-            font-weight: normal;
-            margin-bottom: 5px;
-            text-transform: lowercase;
-            letter-spacing: -0.5px;
-        }
-
-        .image-subtitle {
-            font-size: 16px;
-            font-weight: normal;
-            text-transform: lowercase;
-        }
-
-        .image-description p {
-            font-size: 14px;
-            margin-top: 8px;
-            text-transform: lowercase;
-            opacity: 0.8;
-        }
-
-        /* --- SECCIÓN DE GRID (Archivo/Proyectos) --- */
-        .grid-container {
-            padding: 0 40px;
-            margin-bottom: 100px;
-        }
-
-        .section-header.divider {
-            border-top: 1px solid #000;
-            padding-top: 10px;
-            margin-bottom: 40px;
-        }
-
-        .section-header h1 {
-            font-size: 14px;
-            font-weight: normal;
-        }
-
-        .entries-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 80px 40px;
-        }
-
-        .entry {
-            display: block;
-            cursor: pointer;
-        }
-
-        .entry .placeholder {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            background-color: #f2f2f2;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-
-        .entry .placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.3s ease;
-        }
-
-        .entry:hover .placeholder img {
-            opacity: 0.8;
-        }
-
-        .titles .title {
-            font-size: 15px;
-            font-weight: bold;
-            margin-bottom: 4px;
-            text-transform: lowercase;
-        }
-
-        .titles .subtitle, .titles .date {
-            font-size: 14px;
-            color: #666;
-            display: block;
-            text-transform: lowercase;
-        }
-
+        .titles .title { font-size: 15px; font-weight: bold; margin-bottom: 4px; text-transform: lowercase; }
+        .titles .subtitle, .titles .date { font-size: 14px; color: #666; display: block; text-transform: lowercase; }
+        
         /* --- FOOTER --- */
-        footer.divider {
-            border-top: 1px solid #000;
-            margin: 0 40px;
-            padding: 40px 0;
-            font-size: 13px;
-        }
-
-        .footer-cols {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-
-        .footer-cols p {
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .footer-cols strong {
-            font-weight: bold;
-            color: #000;
-        }
-
+        footer.divider { border-top: 1px solid #000; margin: 0 40px; padding: 40px 0; font-size: 13px; }
+        .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .footer-cols p { margin-bottom: 15px; color: #333; }
+        .footer-cols strong { font-weight: bold; color: #000; }
+        
         /* --- RESPONSIVO --- */
         @media (max-width: 768px) {
             .main-header { padding: 20px; }
             .main-header .container { flex-direction: column; gap: 15px; align-items: flex-start; }
             nav.main { flex-wrap: wrap; gap: 15px; }
-            .full-width-banner { height: 50vh; margin-bottom: 40px; }
-            .full-width-banner figcaption { bottom: 20px; left: 20px; }
             .grid-container { padding: 0 20px; margin-bottom: 60px; }
             .entries-grid { grid-template-columns: 1fr; gap: 50px; }
             footer.divider { margin: 0 20px; }
@@ -221,136 +101,108 @@
         }
     </style>
 </head>
-
 <body class="s-home detail-page">
-
     <div class="page-container">
-
         <!-- CABECERA -->
         <header class="main-header">
             <div class="container">
-                <a class="logo" href="/">monclova</a>
+                <a class="logo" href="/">Federico Barbabosa</a>
                 <nav class="main">
-                    <a href="#cine">cine</a>
-                    <a href="#exposiciones">exposiciones</a>
-                    <a href="#musica">música</a>
-                    <a href="#contacto">contacto</a>
+                    <a href="cine.html">filmografía</a>
+                    <a href="comerciales.html">publicidad</a>
+                    <a href="contacto.html">contacto</a>
                 </nav>
             </div>
         </header>
-
+        
         <div id="contentWrapper" class="contentWrapper">
             <section class="custom_page">
                 
-                <!-- BANNER ROTATIVO (Hero) -->
-                <section id="wrapper-banner-rotate">
-                    <div class="full-width-banner">
-                        <div class="slide">
-                            <a href="#">
-                                <figure></figure>
-                            </a>
-                            <figcaption>
-                                <h1 class="image-title">título del cortometraje</h1>
-                                <h2 class="image-subtitle">monclova | música original</h2>
-                                <div class="image-description">
-                                    <p>octubre 2026</p>
-                                </div>
-                            </figcaption>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- SECCIÓN DE PROYECTOS (Grid) -->
-                <section id="wrapper-associations">
-                    <div class="associations">
-                        <div id="projects-grid" class="grid-container">
-                            <div class="container">
-                                <header class="section-header divider">
-                                    <h1>archivo</h1>
-                                </header>
-                            </div>
+                <!-- SECCIÓN DE PROYECTOS PUBLICITARIOS -->
+                <div id="projects-grid" class="grid-container">
+                    <div class="container">
+                        
+                        <!-- AÑO 2026 -->
+                        <h1 class="year-header">2026</h1>
+                        <div class="entries-grid">
                             
-                            <div class="container entries-grid">
-                                
-                                <!-- Proyecto 1 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv1/800/600?grayscale" alt="Instalación sonora" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">instalación galería</div>
-                                            <span class="subtitle">diseño sonoro</span>
-                                            <span class="date">septiembre 2026</span>
-                                        </div>
-                                    </a>
+                            <!-- Comercial 1 -->
+                            <div class="entry">
+                                <div class="video-placeholder">
+                                    [Aquí irá el iframe de Vimeo]
                                 </div>
-
-                                <!-- Proyecto 2 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv2/800/600?grayscale" alt="Documental" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">documental en tránsito</div>
-                                            <span class="subtitle">banda sonora</span>
-                                            <span class="date">febrero 2026</span>
-                                        </div>
-                                    </a>
+                                <div class="titles">
+                                    <div class="title">título del comercial</div>
+                                    <span class="subtitle">dir. nombre del director</span>
+                                    <span class="date">2026</span>
                                 </div>
-
-                                <!-- Proyecto 3 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv3/800/600?grayscale" alt="Composición experimental" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">pieza experimental</div>
-                                            <span class="subtitle">composición</span>
-                                            <span class="date">noviembre 2025</span>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <!-- Proyecto 4 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv4/800/600?grayscale" alt="Exposición" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">el eco de las cosas</div>
-                                            <span class="subtitle">exposición sonora</span>
-                                            <span class="date">julio 2025</span>
-                                        </div>
-                                    </a>
-                                </div>
-
                             </div>
+
+                            <!-- Comercial 2 -->
+                            <div class="entry">
+                                <div class="video-placeholder">
+                                    [Aquí irá el iframe de Vimeo]
+                                </div>
+                                <div class="titles">
+                                    <div class="title">título del comercial</div>
+                                    <span class="subtitle">dir. nombre del director</span>
+                                    <span class="date">2026</span>
+                                </div>
+                            </div>
+
                         </div>
+
+                        <!-- AÑO 2025 -->
+                        <h1 class="year-header">2025</h1>
+                        <div class="entries-grid">
+                            
+                            <!-- Comercial 3 -->
+                            <div class="entry">
+                                <div class="video-placeholder">
+                                    [Aquí irá el iframe de Vimeo]
+                                </div>
+                                <div class="titles">
+                                    <div class="title">título del comercial</div>
+                                    <span class="subtitle">dir. nombre del director</span>
+                                    <span class="date">2025</span>
+                                </div>
+                            </div>
+
+                            <!-- Comercial 4 -->
+                            <div class="entry">
+                                <div class="video-placeholder">
+                                    [Aquí irá el iframe de Vimeo]
+                                </div>
+                                <div class="titles">
+                                    <div class="title">título del comercial</div>
+                                    <span class="subtitle">dir. nombre del director</span>
+                                    <span class="date">2025</span>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
-                </section>
+                </div>
 
             </section>
         </div>
-
+        
         <!-- FOOTER DE 4 COLUMNAS -->
         <footer class="divider show4col" id="contacto">
             <div class="container clearfix">
                 <div class="footer-cols">
                     <div class="footer-col1">
                         <p>
-                            <strong>estudio monclova</strong><br />
+                            <strong>federico barbabosa</strong><br />
                             ciudad de méxico<br />
                             tel. +52 55 00 00 00 00<br />
-                            <a href="mailto:hola@estudiomonclova.com">hola@estudiomonclova.com</a>
+                            <a href="mailto:hola@federicobarbabosa.com">hola@federicobarbabosa.com</a>
                         </p>
                     </div>
                     <div class="footer-col2">
                         <p>
-                            <strong>horarios de estudio</strong><br />
+                            <strong>horarios</strong><br />
                             lunes a viernes: 10am — 6pm<br />
                             sábado: previa cita
                         </p>
@@ -360,7 +212,7 @@
                             <strong>redes</strong><br />
                             <a href="#">instagram</a><br />
                             <a href="#">vimeo</a><br />
-                            <a href="#">spotify</a>
+                            <a href="#">imdb</a>
                         </p>
                     </div>
                     <div class="footer-col4">
@@ -372,8 +224,6 @@
                 </div>
             </div>
         </footer>
-
     </div>
-
 </body>
 </html>
