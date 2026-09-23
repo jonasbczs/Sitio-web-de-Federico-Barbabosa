@@ -75,26 +75,33 @@
         
         .commercial-entry {
             display: block;
-            cursor: pointer;
             width: 100%;
         }
         
+        .commercial-entry a {
+            display: block;
+            cursor: pointer;
+        }
+
         .commercial-entry .placeholder {
             width: 100%;
             aspect-ratio: 16 / 9; /* Proporción panorámica para video */
             background-color: #f2f2f2;
             margin-bottom: 15px;
             overflow: hidden;
+            position: relative;
         }
         
-        .commercial-entry .placeholder img {
+        .commercial-entry .placeholder img,
+        .commercial-entry .placeholder iframe {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border: none;
             transition: opacity 0.3s ease;
         }
         
-        .commercial-entry:hover .placeholder img {
+        .commercial-entry a:hover .placeholder img {
             opacity: 0.8;
         }
         
@@ -230,14 +237,13 @@
                         </a>
                     </div>
                     
-                    <!-- Placeholder 8 -->
+                    <!-- Placeholder 8 (Loreal con video incrustado de Vimeo) -->
                     <div class="commercial-entry">
-                        <a href="#">
-                            <div class="placeholder">
-                                <img src="https://picsum.photos/seed/comm8/1280/720?grayscale" alt="Comercial 8" />
-                            </div>
-                            <div class="commercial-title">Loreal</div>
-                        </a>
+                        <!-- Se quitó la etiqueta 'a' para que el video se pueda reproducir sin redirigir -->
+                        <div class="placeholder">
+                            <iframe src="https://player.vimeo.com/video/1229705975?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="commercial-title">Loreal</div>
                     </div>
                     
                     <!-- Placeholder 9 -->
