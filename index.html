@@ -55,7 +55,8 @@
         }
 
         /* --- BANNER PRINCIPAL (Hero / Video Background Autoplay) --- */
-        .full-width-banner { position: relative; width: 100%; height: 75vh; background-color: #000000; margin-bottom: 25px; overflow: hidden; }
+        /* Se eliminó el margin-bottom para controlar la simetría desde el título */
+        .full-width-banner { position: relative; width: 100%; height: 75vh; background-color: #000000; margin-bottom: 0; overflow: hidden; }
         .video-background { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translateX(-50%) translateY(-50%); object-fit: cover; z-index: 1; }
         .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); z-index: 2; }
         
@@ -69,14 +70,15 @@
             z-index: 3;
         }
 
-        /* --- TÍTULO CENTRADO SIN LÍNEA --- */
+        /* --- TÍTULO CENTRADO CON ESPACIO SIMÉTRICO --- */
         .home-title-centered {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
-            margin-bottom: 40px;
-            border: none; /* Asegura que no haya ninguna línea */
+            margin-top: 40px; /* Distancia exacta hacia arriba (imagen grande) */
+            margin-bottom: 40px; /* Distancia exacta hacia abajo (mosaico pequeño) */
+            border: none;
         }
         .home-title-centered h1 {
             font-size: 18px;
@@ -147,8 +149,9 @@
             .main-header { padding: 20px; }
             .main-header .container { flex-direction: column; gap: 15px; align-items: flex-start; }
             nav.main { flex-wrap: wrap; gap: 15px; }
-            .full-width-banner { height: 50vh; margin-bottom: 20px; }
+            .full-width-banner { height: 50vh; margin-bottom: 0; }
             .banner-caption { left: 20px; bottom: 20px; }
+            .home-title-centered { margin-top: 25px; margin-bottom: 25px; } /* Simetría mantenida en celular */
             .grid-container { padding: 0 20px; margin-bottom: 60px; }
             .entries-grid { grid-template-columns: 1fr; gap: 15px; }
             footer.divider { margin: 0 20px; }
@@ -183,7 +186,7 @@
                             <source src="reel-fondo.mp4" type="video/mp4">
                         </video>
                         <!-- TEXTO EN LA ESQUINA INFERIOR IZQUIERDA -->
-                        <div class="banner-caption"></div>
+                        <div class="banner-caption">Toyota</div>
                     </div>
                 </section>
 
@@ -192,7 +195,7 @@
                     <div class="associations">
                         <div id="projects-grid" class="grid-container">
                             
-                            <!-- TÍTULO CENTRADO Y SIN LÍNEA -->
+                            <!-- TÍTULO CENTRADO CON SIMETRÍA VERTICAL -->
                             <div class="home-title-centered">
                                 <h1>Home</h1>
                             </div>
