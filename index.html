@@ -47,6 +47,12 @@
         nav.main { display: flex; gap: 25px; }
         nav.main a { font-size: 16px; transition: color 0.3s ease; }
         nav.main a:hover { color: #888888; }
+        
+        /* Estilo para la página actual en la navegación */
+        nav.main a.active {
+            font-family: 'Alte Haas Grotesk Bold', sans-serif;
+            font-weight: normal;
+        }
 
         /* --- BANNER PRINCIPAL (Hero / Video Background Autoplay) --- */
         .full-width-banner { position: relative; width: 100%; height: 75vh; background-color: #000000; margin-bottom: 25px; overflow: hidden; }
@@ -114,11 +120,12 @@
         <!-- CABECERA -->
         <header class="main-header">
             <div class="container">
-                <a class="logo" href="/">
+                <a class="logo" href="index.html">
                     <span class="brand-name">Federico Barbabosa</span> 
                     <span class="brand-title">— Cinematographer</span>
                 </a>
                 <nav class="main">
+                    <a href="index.html" class="active">Home</a>
                     <a href="cine.html">Features</a>
                     <a href="comerciales.html">Commercials</a>
                     <a href="contacto.html">Contact</a>
