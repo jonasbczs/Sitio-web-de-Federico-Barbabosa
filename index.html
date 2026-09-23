@@ -69,18 +69,45 @@
             z-index: 3;
         }
 
-        /* --- SECCIÓN DE GRID (Archivo/Proyectos) --- */
+        /* --- SECCIÓN DE MOSAICO (Proyectos en loop) --- */
         .grid-container { padding: 0 40px; margin-bottom: 100px; }
         .section-header.divider { border-top: 1px solid #000; padding-top: 10px; margin-bottom: 30px; }
         .section-header h1 { font-size: 18px; font-weight: normal; }
-        .entries-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 80px 40px; }
-        .entry { display: block; cursor: pointer; }
-        .entry .placeholder { width: 100%; aspect-ratio: 4 / 3; background-color: #f2f2f2; margin-bottom: 15px; overflow: hidden; }
-        .entry .placeholder img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s ease; }
-        .entry:hover .placeholder img { opacity: 0.8; }
         
-        .titles .title { font-size: 15px; font-weight: bold; margin-bottom: 4px; }
-        .titles .subtitle, .titles .date { font-size: 14px; color: #666; display: block; }
+        /* Contenedor central para hacer los videos más pequeños */
+        .mosaic-container {
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+
+        /* Cuadrícula a 2 columnas */
+        .entries-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px; /* Separación pequeña entre recuadros */
+        }
+        
+        .entry { display: block; cursor: pointer; }
+        .entry .video-wrapper { 
+            width: 100%; 
+            aspect-ratio: 16 / 9; 
+            background-color: #f2f2f2; 
+            overflow: hidden; 
+            position: relative;
+        }
+        
+        .entry .video-wrapper video, 
+        .entry .video-wrapper img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: opacity 0.3s ease; 
+        }
+        
+        .entry:hover .video-wrapper video,
+        .entry:hover .video-wrapper img { 
+            opacity: 0.8; 
+        }
         
         /* --- FOOTER SIMPLIFICADO --- */
         footer.divider { 
@@ -110,7 +137,7 @@
             .full-width-banner { height: 50vh; margin-bottom: 20px; }
             .banner-caption { left: 20px; bottom: 20px; }
             .grid-container { padding: 0 20px; margin-bottom: 60px; }
-            .entries-grid { grid-template-columns: 1fr; gap: 50px; }
+            .entries-grid { grid-template-columns: 1fr; gap: 15px; } /* 1 columna o 2 columnas pequeñas en celular, lo dejamos en 1 para que se vea bien */
             footer.divider { margin: 0 20px; }
         }
     </style>
@@ -120,7 +147,7 @@
         <!-- CABECERA -->
         <header class="main-header">
             <div class="container">
-                <a class="logo" href="index.html">
+                <a class="logo" href="/">
                     <span class="brand-name">Federico Barbabosa</span> 
                     <span class="brand-title">— Cinematographer</span>
                 </a>
@@ -147,7 +174,7 @@
                     </div>
                 </section>
 
-                <!-- SECCIÓN DE PROYECTOS (Grid) -->
+                <!-- SECCIÓN DE PROYECTOS (Mosaico de fragmentos en loop) -->
                 <section id="wrapper-associations">
                     <div class="associations">
                         <div id="projects-grid" class="grid-container">
@@ -156,58 +183,110 @@
                                     <h1>Home</h1>
                                 </header>
                             </div>
-                            <div class="container entries-grid">
-                                <!-- Proyecto 1 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv1/800/600?grayscale" alt="Proyecto 1" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del proyecto</div>
-                                            <span class="subtitle">Dirección de fotografía</span>
-                                            <span class="date">2026</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- Proyecto 2 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv2/800/600?grayscale" alt="Proyecto 2" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del proyecto</div>
-                                            <span class="subtitle">Dirección de fotografía</span>
-                                            <span class="date">2026</span>
+                            
+                            <div class="mosaic-container">
+                                <div class="entries-grid">
+                                    
+                                    <!-- Fragmento 1 -->
+                                    <a href="#" class="entry">
+                                        <div class="video-wrapper">
+                                            <!-- Usa la etiqueta de video para tus fragmentos en loop. Puedes reemplazar el 'poster' por tu imagen y el 'src' por tu video. -->
+                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop1/800/450?grayscale">
+                                                <source src="fragmento1.mp4" type="video/mp4">
+                                            </video>
                                         </div>
                                     </a>
-                                </div>
-                                <!-- Proyecto 3 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv3/800/600?grayscale" alt="Proyecto 3" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del proyecto</div>
-                                            <span class="subtitle">Dirección de fotografía</span>
-                                            <span class="date">2025</span>
+                                    
+                                    <!-- Fragmento 2 -->
+                                    <a href="#" class="entry">
+                                        <div class="video-wrapper">
+                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop2/800/450?grayscale">
+                                                <source src="fragmento2.mp4" type="video/mp4">
+                                            </video>
                                         </div>
                                     </a>
-                                </div>
-                                <!-- Proyecto 4 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv4/800/600?grayscale" alt="Proyecto 4" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del proyecto</div>
-                                            <span class="subtitle">Dirección de fotografía</span>
-                                            <span class="date">2025</span>
+                                    
+                                    <!-- Fragmento 3 -->
+                                    <a href="#" class="entry">
+                                        <div class="video-wrapper">
+                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop3/800/450?grayscale">
+                                                <source src="fragmento3.mp4" type="video/mp4">
+                                            </video>
                                         </div>
                                     </a>
+                                    
+                                    <!-- Fragmento 4 -->
+                                    <a href="#" class="entry">
+                                        <div class="video-wrapper">
+                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop4/800/450?grayscale">
+                                                <source src="fragmento4.mp4" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    </a>
+
+                                    <!-- Fragmento 5 -->
+                                    <a href="#" class="entry">
+                                        <div class="video-wrapper">
+                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop5/800/450?grayscale">
+                                                <source src="fragmento5.mp4" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    </a>
+
+                                    <!-- Fragmento 6 -->
+                                    <a href="#" class="entry">
+                                        <div class="video-wrapper">
+                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop6/800/450?grayscale">
+                                                <source src="fragmento6.mp4" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    </a>
+
+                                    <!-- Fragmento 7 -->
+                                    <a href="#" class="entry">
+                                        <div class="video-wrapper">
+                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop7/800/450?grayscale">
+                                                <source src="fragmento7.mp4" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    </a>
+
+                                    <!-- Fragmento 8 -->
+                                    <a href="#" class="entry">
+                                        <div class="video-wrapper">
+                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop8/800/450?grayscale">
+                                                <source src="fragmento8.mp4" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    </a>
+
+                                    <!-- Fragmento 9 -->
+                                    <a href="#" class="entry">
+                                        <div class="video-wrapper">
+                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop9/800/450?grayscale">
+                                                <source src="fragmento9.mp4" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    </a>
+
+                                    <!-- Fragmento 10 -->
+                                    <a href="#" class="entry">
+                                        <div class="video-wrapper">
+                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop10/800/450?grayscale">
+                                                <source src="fragmento10.mp4" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    </a>
+
+                                    <!-- Fragmento 11 (quedará suelto hasta abajo a la izquierda) -->
+                                    <a href="#" class="entry">
+                                        <div class="video-wrapper">
+                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop11/800/450?grayscale">
+                                                <source src="fragmento11.mp4" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    </a>
+
                                 </div>
                             </div>
                         </div>
@@ -220,7 +299,7 @@
         <footer class="divider" id="contacto">
             <div class="container">
                 <p class="footer-credit">
-                    <strong>Web Design:</strong> Colectivo Monclova
+                    <strong>Website Design:</strong> Colectivo Monclova
                 </p>
             </div>
         </footer>
