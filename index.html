@@ -69,10 +69,23 @@
             z-index: 3;
         }
 
+        /* --- TÍTULO CENTRADO SIN LÍNEA --- */
+        .home-title-centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 40px;
+            border: none; /* Asegura que no haya ninguna línea */
+        }
+        .home-title-centered h1 {
+            font-size: 18px;
+            font-weight: normal;
+            margin: 0;
+        }
+
         /* --- SECCIÓN DE MOSAICO (Proyectos en loop) --- */
         .grid-container { padding: 0 40px; margin-bottom: 100px; }
-        .section-header.divider { border-top: 1px solid #000; padding-top: 10px; margin-bottom: 30px; }
-        .section-header h1 { font-size: 18px; font-weight: normal; }
         
         /* Contenedor central para hacer los videos más pequeños */
         .mosaic-container {
@@ -137,7 +150,7 @@
             .full-width-banner { height: 50vh; margin-bottom: 20px; }
             .banner-caption { left: 20px; bottom: 20px; }
             .grid-container { padding: 0 20px; margin-bottom: 60px; }
-            .entries-grid { grid-template-columns: 1fr; gap: 15px; } /* 1 columna o 2 columnas pequeñas en celular, lo dejamos en 1 para que se vea bien */
+            .entries-grid { grid-template-columns: 1fr; gap: 15px; }
             footer.divider { margin: 0 20px; }
         }
     </style>
@@ -178,10 +191,10 @@
                 <section id="wrapper-associations">
                     <div class="associations">
                         <div id="projects-grid" class="grid-container">
-                            <div class="container">
-                                <header class="section-header divider">
-                                    <h1>Home</h1>
-                                </header>
+                            
+                            <!-- TÍTULO CENTRADO Y SIN LÍNEA -->
+                            <div class="home-title-centered">
+                                <h1>Home</h1>
                             </div>
                             
                             <div class="mosaic-container">
@@ -190,7 +203,6 @@
                                     <!-- Fragmento 1 -->
                                     <a href="#" class="entry">
                                         <div class="video-wrapper">
-                                            <!-- Usa la etiqueta de video para tus fragmentos en loop. Puedes reemplazar el 'poster' por tu imagen y el 'src' por tu video. -->
                                             <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop1/800/450?grayscale">
                                                 <source src="fragmento1.mp4" type="video/mp4">
                                             </video>
