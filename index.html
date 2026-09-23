@@ -80,17 +80,32 @@
             position: relative;
             width: 100%;
             height: 75vh;
-            background-color: #111;
+            background-color: #000000; /* Cambiado a negro sólido para el fondo del video */
             margin-bottom: 60px;
         }
 
-        .full-width-banner figure {
+        .full-width-banner .slide {
             width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
-            margin: 0;
-            background-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 30%), url('https://picsum.photos/seed/monclovacine/1920/1080?grayscale');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Contenedor del iframe para asegurar responsividad */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         /* --- TEXTO INTRODUCTORIO --- */
@@ -221,14 +236,14 @@
         <div id="contentWrapper" class="contentWrapper">
             <section class="custom_page">
                 
-                <!-- BANNER ROTATIVO (Hero / Video Principal) -->
+                <!-- BANNER ROTATIVO (Hero / Video Principal Vimeo) -->
                 <section id="wrapper-banner-rotate">
                     <div class="full-width-banner">
                         <div class="slide">
-                            <a href="#">
-                                <!-- El código de inserción de Vimeo reemplazará este figure -->
-                                <figure></figure>
-                            </a>
+                            <div class="video-container">
+                                <!-- Enlace actualizado con el ID de tu video -->
+                                <iframe src="https://player.vimeo.com/video/1229419609?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            </div>
                         </div>
                     </div>
                 </section>
