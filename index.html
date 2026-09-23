@@ -41,7 +41,7 @@
         .logo .brand-title {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: normal;
-            font-size: 20px; /* Un tamaño ligeramente menor para equilibrar */
+            font-size: 20px; 
         }
 
         nav.main { display: flex; gap: 25px; }
@@ -53,6 +53,18 @@
         .video-background { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translateX(-50%) translateY(-50%); object-fit: cover; z-index: 1; }
         .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); z-index: 2; }
         
+        /* --- TEXTO SOBRE EL VIDEO (Esquina inferior izquierda) --- */
+        .banner-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 40px;
+            color: #ffffff;
+            font-size: 16px;
+            z-index: 3; /* Para que quede por encima del video y el overlay */
+            /* Si prefieres usar la tipografía del título, descomenta la siguiente línea: */
+            /* font-family: 'Alte Haas Grotesk Bold', sans-serif; */
+        }
+
         /* --- SECCIÓN DE GRID (Archivo/Proyectos) --- */
         .grid-container { padding: 0 40px; margin-bottom: 100px; }
         .section-header.divider { border-top: 1px solid #000; padding-top: 10px; margin-bottom: 40px; }
@@ -78,6 +90,7 @@
             .main-header .container { flex-direction: column; gap: 15px; align-items: flex-start; }
             nav.main { flex-wrap: wrap; gap: 15px; }
             .full-width-banner { height: 50vh; margin-bottom: 40px; }
+            .banner-caption { left: 20px; bottom: 20px; } /* Ajuste de márgenes para celular */
             .grid-container { padding: 0 20px; margin-bottom: 60px; }
             .entries-grid { grid-template-columns: 1fr; gap: 50px; }
             footer.divider { margin: 0 20px; }
@@ -111,6 +124,8 @@
                         <video class="video-background" autoplay muted loop playsinline>
                             <source src="reel-fondo.mp4" type="video/mp4">
                         </video>
+                        <!-- TEXTO EN LA ESQUINA INFERIOR IZQUIERDA -->
+                        <div class="banner-caption">Toyota</div>
                     </div>
                 </section>
 
@@ -192,7 +207,7 @@
                             <strong>Federico Barbabosa</strong><br />
                             Ciudad de México<br />
                             Tel. +52 55 00 00 00 00<br />
-                            <a href="mailto:hola@federicobarbabosa.com">hola@federicobarbabosa.com</a>
+                            <a href="mailto:fedebarba@gmail.com">fedebarba@gmail.com</a>
                         </p>
                     </div>
                     <div class="footer-col2">
