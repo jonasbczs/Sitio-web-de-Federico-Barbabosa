@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <title>Federico Barbabosa</title>
     
-    <!-- Importación de tipografía elegante para el logo -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    
     <style>
         /* --- ESTILOS BASE --- */
         * {
@@ -59,11 +54,10 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif; /* Tipografía cinematográfica/editorial */
-            font-size: 26px; /* Aumentado para darle más presencia */
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: none; 
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+            text-transform: none; /* Permite las mayúsculas F y B */
         }
 
         nav.main {
@@ -72,7 +66,7 @@
         }
 
         nav.main a {
-            font-size: 16px; /* Aumentado de 13px a 16px */
+            font-size: 16px; /* Aumentado para mayor legibilidad */
             text-transform: lowercase;
             transition: color 0.3s ease;
         }
@@ -97,34 +91,6 @@
             background-position: center;
             margin: 0;
             background-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 30%), url('https://picsum.photos/seed/monclovacine/1920/1080?grayscale');
-        }
-
-        .full-width-banner figcaption {
-            position: absolute;
-            bottom: 40px;
-            left: 40px;
-            color: #ffffff;
-        }
-
-        .image-title {
-            font-size: 28px;
-            font-weight: normal;
-            margin-bottom: 5px;
-            text-transform: lowercase;
-            letter-spacing: -0.5px;
-        }
-
-        .image-subtitle {
-            font-size: 16px;
-            font-weight: normal;
-            text-transform: lowercase;
-        }
-
-        .image-description p {
-            font-size: 14px;
-            margin-top: 8px;
-            text-transform: lowercase;
-            opacity: 0.8;
         }
 
         /* --- TEXTO INTRODUCTORIO --- */
@@ -227,7 +193,6 @@
             .main-header .container { flex-direction: column; gap: 15px; align-items: flex-start; }
             nav.main { flex-wrap: wrap; gap: 15px; }
             .full-width-banner { height: 50vh; margin-bottom: 40px; }
-            .full-width-banner figcaption { bottom: 20px; left: 20px; }
             .intro-text { padding: 0 20px; margin-bottom: 50px; }
             .grid-container { padding: 0 20px; margin-bottom: 60px; }
             .entries-grid { grid-template-columns: 1fr; gap: 50px; }
@@ -261,15 +226,9 @@
                     <div class="full-width-banner">
                         <div class="slide">
                             <a href="#">
+                                <!-- El código de inserción de Vimeo reemplazará este figure -->
                                 <figure></figure>
                             </a>
-                            <figcaption>
-                                <h1 class="image-title">título del cortometraje</h1>
-                                <h2 class="image-subtitle">monclova | música original</h2>
-                                <div class="image-description">
-                                    <p>octubre 2026</p>
-                                </div>
-                            </figcaption>
                         </div>
                     </div>
                 </section>
@@ -295,12 +254,12 @@
                                 <div class="entry">
                                     <a href="#">
                                         <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv1/800/600?grayscale" alt="Instalación sonora" />
+                                            <img src="https://picsum.photos/seed/mclv1/800/600?grayscale" alt="Proyecto 1" />
                                         </div>
                                         <div class="titles">
-                                            <div class="title">instalación galería</div>
-                                            <span class="subtitle">diseño sonoro</span>
-                                            <span class="date">septiembre 2026</span>
+                                            <div class="title">título del proyecto</div>
+                                            <span class="subtitle">dirección de fotografía</span>
+                                            <span class="date">2026</span>
                                         </div>
                                     </a>
                                 </div>
@@ -309,12 +268,12 @@
                                 <div class="entry">
                                     <a href="#">
                                         <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv2/800/600?grayscale" alt="Documental" />
+                                            <img src="https://picsum.photos/seed/mclv2/800/600?grayscale" alt="Proyecto 2" />
                                         </div>
                                         <div class="titles">
-                                            <div class="title">documental en tránsito</div>
-                                            <span class="subtitle">banda sonora</span>
-                                            <span class="date">febrero 2026</span>
+                                            <div class="title">título del proyecto</div>
+                                            <span class="subtitle">dirección de fotografía</span>
+                                            <span class="date">2026</span>
                                         </div>
                                     </a>
                                 </div>
@@ -323,12 +282,12 @@
                                 <div class="entry">
                                     <a href="#">
                                         <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv3/800/600?grayscale" alt="Composición experimental" />
+                                            <img src="https://picsum.photos/seed/mclv3/800/600?grayscale" alt="Proyecto 3" />
                                         </div>
                                         <div class="titles">
-                                            <div class="title">pieza experimental</div>
-                                            <span class="subtitle">composición</span>
-                                            <span class="date">noviembre 2025</span>
+                                            <div class="title">título del proyecto</div>
+                                            <span class="subtitle">dirección de fotografía</span>
+                                            <span class="date">2025</span>
                                         </div>
                                     </a>
                                 </div>
@@ -337,12 +296,12 @@
                                 <div class="entry">
                                     <a href="#">
                                         <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv4/800/600?grayscale" alt="Exposición" />
+                                            <img src="https://picsum.photos/seed/mclv4/800/600?grayscale" alt="Proyecto 4" />
                                         </div>
                                         <div class="titles">
-                                            <div class="title">el eco de las cosas</div>
-                                            <span class="subtitle">exposición sonora</span>
-                                            <span class="date">julio 2025</span>
+                                            <div class="title">título del proyecto</div>
+                                            <span class="subtitle">dirección de fotografía</span>
+                                            <span class="date">2025</span>
                                         </div>
                                     </a>
                                 </div>
@@ -361,15 +320,15 @@
                 <div class="footer-cols">
                     <div class="footer-col1">
                         <p>
-                            <strong>estudio monclova</strong><br />
+                            <strong>federico barbabosa</strong><br />
                             ciudad de méxico<br />
                             tel. +52 55 00 00 00 00<br />
-                            <a href="mailto:hola@estudiomonclova.com">hola@estudiomonclova.com</a>
+                            <a href="mailto:hola@federicobarbabosa.com">hola@federicobarbabosa.com</a>
                         </p>
                     </div>
                     <div class="footer-col2">
                         <p>
-                            <strong>horarios de estudio</strong><br />
+                            <strong>horarios</strong><br />
                             lunes a viernes: 10am — 6pm<br />
                             sábado: previa cita
                         </p>
@@ -379,7 +338,7 @@
                             <strong>redes</strong><br />
                             <a href="#">instagram</a><br />
                             <a href="#">vimeo</a><br />
-                            <a href="#">spotify</a>
+                            <a href="#">imdb</a>
                         </p>
                     </div>
                     <div class="footer-col4">
