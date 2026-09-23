@@ -77,11 +77,25 @@
             color: #888888;
         }
 
-        /* --- FOOTER --- */
-        footer.divider { border-top: 1px solid #000; margin: 0 40px; padding: 40px 0; font-size: 13px; }
-        .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-        .footer-cols p { margin-bottom: 15px; color: #333; }
-        .footer-cols strong { font-weight: bold; color: #000; }
+        /* --- FOOTER SIMPLIFICADO --- */
+        footer.divider { 
+            border-top: 1px solid #000; 
+            margin: 40px 40px 30px 40px; /* Se bajó un poco ajustando los márgenes */
+            padding-top: 20px; 
+            font-size: 13px; 
+            color: #666;
+        }
+        
+        .footer-credit {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: normal;
+        }
+
+        .footer-credit strong {
+            font-family: 'Alte Haas Grotesk Bold', sans-serif;
+            font-weight: normal;
+            color: #000;
+        }
         
         /* --- RESPONSIVO --- */
         @media (max-width: 768px) {
@@ -90,8 +104,7 @@
             nav.main { flex-wrap: wrap; gap: 15px; }
             .contact-title { font-size: 36px; }
             .contact-email { font-size: 18px; }
-            footer.divider { margin: 0 20px; }
-            .footer-cols { grid-template-columns: 1fr; gap: 40px; }
+            footer.divider { margin: 30px 20px 20px 20px; }
         }
     </style>
 </head>
@@ -120,40 +133,12 @@
             </section>
         </div>
         
-        <!-- FOOTER DE 4 COLUMNAS -->
-        <footer class="divider show4col" id="contacto">
-            <div class="container clearfix">
-                <div class="footer-cols">
-                    <div class="footer-col1">
-                        <p>
-                            <strong>Federico Barbabosa</strong><br />
-                            Ciudad de México<br />
-                            Tel. +52 55 00 00 00 00<br />
-                            <a href="mailto:federicobarbabosa@yahoo.com.mx">federicobarbabosa@yahoo.com.mx</a>
-                        </p>
-                    </div>
-                    <div class="footer-col2">
-                        <p>
-                            <strong>Horarios</strong><br />
-                            Lunes a viernes: 10 am — 6 pm<br />
-                            Sábado: previa cita
-                        </p>
-                    </div>
-                    <div class="footer-col3">
-                        <p>
-                            <strong>Redes</strong><br />
-                            <a href="#">Instagram</a><br />
-                            <a href="#">Vimeo</a><br />
-                            <a href="#">IMDb</a>
-                        </p>
-                    </div>
-                    <div class="footer-col4">
-                        <p>
-                            <a href="#">Términos y condiciones</a><br />
-                            <a href="#">Aviso de privacidad</a>
-                        </p>
-                    </div>
-                </div>
+        <!-- FOOTER SIMPLIFICADO -->
+        <footer class="divider" id="contacto">
+            <div class="container">
+                <p class="footer-credit">
+                    <strong>Diseño de sitio web</strong>, Taller Monclova
+                </p>
             </div>
         </footer>
     </div>
