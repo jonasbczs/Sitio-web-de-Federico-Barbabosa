@@ -6,11 +6,11 @@
     <title>Federico Barbabosa</title>
     
     <style>
-        /* --- DECLARACIÓN DE LA TIPOGRAFÍA PERSONALIZADA --- */
+        /* --- DECLARACIÓN DE LA TIPOGRAFÍA PERSONALIZADA (.ttf) --- */
         @font-face {
             font-family: 'Alte Haas Grotesk';
-            src: url('AlteHaasGroteskRegular.woff2') format('woff2'); /* Asegúrate de que el nombre coincida exactamente con tu archivo */
-            font-weight: normal;
+            src: url('AlteHaasGroteskBold.ttf') format('truetype');
+            font-weight: bold;
             font-style: normal;
         }
 
@@ -30,7 +30,7 @@
         .logo { 
             font-family: 'Alte Haas Grotesk', sans-serif; 
             font-size: 22px; 
-            font-weight: normal; 
+            font-weight: bold; 
             letter-spacing: -0.5px; 
             text-transform: none; 
         }
@@ -99,164 +99,6 @@
                 <section id="wrapper-banner-rotate">
                     <div class="full-width-banner">
                         <div class="video-overlay"></div>
-                        <video class="video-background" autoplay muted loop playsinline>
-                            <source src="reel-fondo.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </section>
-                <!-- TEXTO INTRODUCTORIO BREVE -->
-                <section class="intro-text">
-                    <p>Aquí puedes escribir un breve texto sobre tu enfoque estético, tu visión como director de fotografía, o una pequeña biografía introductoria que acompañe tu reel.</p>
-                </section>
-                <!-- SECCIÓN DE PROYECTOS (Grid) -->
-                <section id="wrapper-associations">
-                    <div class="associations">
-                        <div id="projects-grid" class="grid-container">
-                            <div class="container">
-                                <header class="section-header divider">
-                                    <h1>Reel</h1>
-                                </header>
-                            </div>
-                            <div class="container entries-grid">
-                                <!-- Proyecto 1 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv1/800/600?grayscale" alt="Proyecto 1" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">título del proyecto</div>
-                                            <span class="subtitle">dirección de fotografía</span>
-                                            <span class="date">2026</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- Proyecto 2 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv2/800/600?grayscale" alt="Proyecto 2" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">título del proyecto</div>
-                                            <span class="subtitle">dirección de fotografía</span>
-                                            <span class="date">2026</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- Proyecto 3 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv3/800/600?grayscale" alt="Proyecto 3" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">título del proyecto</div>
-                                            <span class="subtitle">dirección de fotografía</span>
-                                            <span class="date">2025</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- Proyecto 4 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv4/800/600?grayscale" alt="Proyecto 4" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">título del proyecto</div>
-                                            <span class="subtitle">dirección de fotografía</span>
-                                            <span class="date">2025</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-        </div>
-        
-        <!-- FOOTER DE 4 COLUMNAS -->
-        <footer class="divider show4col" id="contacto">
-            <div class="container clearfix">
-                <div class="footer-cols">
-                    <div class="footer-col1">
-                        <p>
-                            <strong>federico barbabosa</strong><br />
-                            ciudad de méxico<br />
-                            tel. +52 55 00 00 00 00<br />
-                            <a href="mailto:hola@federicobarbabosa.com">hola@federicobarbabosa.com</a>
-                        </p>
-                    </div>
-                    <div class="footer-col2">
-                        <p>
-                            <strong>horarios</strong><br />
-                            lunes a viernes: 10am — 6pm<br />
-                            sábado: previa cita
-                        </p>
-                    </div>
-                    <div class="footer-col3">
-                        <p>
-                            <strong>redes</strong><br />
-                            <a href="#">instagram</a><br />
-                            <a href="#">vimeo</a><br />
-                            <a href="#">imdb</a>
-                        </p>
-                    </div>
-                    <div class="footer-col4">
-                        <p>
-                            <a href="#">términos & condiciones</a><br />
-                            <a href="#">aviso de privacidad</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
-</body>
-</html>        .titles .title { font-size: 15px; font-weight: bold; margin-bottom: 4px; text-transform: lowercase; }
-        .titles .subtitle, .titles .date { font-size: 14px; color: #666; display: block; text-transform: lowercase; }
-        /* --- FOOTER --- */
-        footer.divider { border-top: 1px solid #000; margin: 0 40px; padding: 40px 0; font-size: 13px; }
-        .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-        .footer-cols p { margin-bottom: 15px; color: #333; }
-        .footer-cols strong { font-weight: bold; color: #000; }
-        /* --- RESPONSIVO --- */
-        @media (max-width: 768px) {
-            .main-header { padding: 20px; }
-            .main-header .container { flex-direction: column; gap: 15px; align-items: flex-start; }
-            nav.main { flex-wrap: wrap; gap: 15px; }
-            .full-width-banner { height: 50vh; margin-bottom: 40px; }
-            .intro-text { padding: 0 20px; margin-bottom: 50px; }
-            .grid-container { padding: 0 20px; margin-bottom: 60px; }
-            .entries-grid { grid-template-columns: 1fr; gap: 50px; }
-            footer.divider { margin: 0 20px; }
-            .footer-cols { grid-template-columns: 1fr; gap: 40px; }
-        }
-    </style>
-</head>
-<body class="s-home detail-page">
-    <div class="page-container">
-        <!-- CABECERA -->
-        <header class="main-header">
-            <div class="container">
-                <a class="logo" href="/">Federico Barbabosa</a>
-                <nav class="main">
-                    <a href="cine.html">filmografía</a>
-                    <a href="comerciales.html">publicidad</a>
-                    <a href="contacto.html">contacto</a>
-                </nav>
-            </div>
-        </header>
-        
-        <div id="contentWrapper" class="contentWrapper">
-            <section class="custom_page">
-                <!-- BANNER ROTATIVO (Hero / Video Background Autoplay) -->
-                <section id="wrapper-banner-rotate">
-                    <div class="full-width-banner">
-                        <div class="video-overlay"></div>
-                        <!-- IMPORTANTE: El archivo de video debe llamarse reel-fondo.mp4 y estar subido a GitHub -->
                         <video class="video-background" autoplay muted loop playsinline>
                             <source src="reel-fondo.mp4" type="video/mp4">
                         </video>
