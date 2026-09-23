@@ -39,39 +39,40 @@
         nav.main a { font-size: 16px; text-transform: lowercase; transition: color 0.3s ease; }
         nav.main a:hover { color: #888888; }
         
-        /* --- SECCIÓN DE GALERÍA DE VIDEOS (Publicidad) --- */
-        .grid-container { padding: 40px 40px; margin-bottom: 100px; }
+        /* --- SECCIÓN TIMELINE DE COMERCIALES --- */
+        /* Ajustamos el padding superior para que empiece limpio justo después de la cabecera */
+        .timeline-container { padding: 60px 40px; margin-bottom: 100px; }
+        
+        .year-section { margin-bottom: 80px; }
         
         .year-header { 
+            font-size: 22px; 
+            font-weight: normal; 
             border-bottom: 1px solid #000; 
             padding-bottom: 10px; 
-            margin-top: 40px; 
             margin-bottom: 40px; 
-            font-size: 18px; 
-            font-weight: normal; 
         }
 
-        .entries-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 80px 40px; }
+        .entries-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px 40px; }
         
         .entry { display: block; }
         
-        /* Contenedor 16:9 para incrustar iframes de Vimeo cómodamente */
-        .entry .video-placeholder { 
+        /* Contenedor 16:9 para iframes de Vimeo */
+        .video-placeholder { 
             width: 100%; 
             aspect-ratio: 16 / 9; 
-            background-color: #f2f2f2; 
+            background-color: #f5f5f5; 
             margin-bottom: 15px; 
             position: relative;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #999;
-            font-size: 12px;
+            font-size: 13px;
+            border: 1px dashed #ccc; /* Borde punteado para indicar que es un placeholder */
         }
 
-        /* Regla para cuando insertes el iframe de Vimeo */
-        .entry .video-placeholder iframe {
+        .video-placeholder iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -80,8 +81,8 @@
             border: none;
         }
 
-        .titles .title { font-size: 15px; font-weight: bold; margin-bottom: 4px; text-transform: lowercase; }
-        .titles .subtitle, .titles .date { font-size: 14px; color: #666; display: block; text-transform: lowercase; }
+        .titles .title { font-size: 16px; font-weight: bold; margin-bottom: 4px; text-transform: lowercase; }
+        .titles .director, .titles .date { font-size: 14px; color: #555; display: block; text-transform: lowercase; margin-top: 2px; }
         
         /* --- FOOTER --- */
         footer.divider { border-top: 1px solid #000; margin: 0 40px; padding: 40px 0; font-size: 13px; }
@@ -94,7 +95,7 @@
             .main-header { padding: 20px; }
             .main-header .container { flex-direction: column; gap: 15px; align-items: flex-start; }
             nav.main { flex-wrap: wrap; gap: 15px; }
-            .grid-container { padding: 0 20px; margin-bottom: 60px; }
+            .timeline-container { padding: 40px 20px; }
             .entries-grid { grid-template-columns: 1fr; gap: 50px; }
             footer.divider { margin: 0 20px; }
             .footer-cols { grid-template-columns: 1fr; gap: 40px; }
@@ -118,22 +119,22 @@
         <div id="contentWrapper" class="contentWrapper">
             <section class="custom_page">
                 
-                <!-- SECCIÓN DE PROYECTOS PUBLICITARIOS -->
-                <div id="projects-grid" class="grid-container">
-                    <div class="container">
-                        
-                        <!-- AÑO 2026 -->
-                        <h1 class="year-header">2026</h1>
+                <!-- TIMELINE DE COMERCIALES -->
+                <div class="timeline-container">
+                    
+                    <!-- SECCIÓN AÑO 2026 -->
+                    <div class="year-section">
+                        <h2 class="year-header">2026</h2>
                         <div class="entries-grid">
                             
                             <!-- Comercial 1 -->
                             <div class="entry">
                                 <div class="video-placeholder">
-                                    [Aquí irá el iframe de Vimeo]
+                                    [iframe de Vimeo 16:9]
                                 </div>
                                 <div class="titles">
                                     <div class="title">título del comercial</div>
-                                    <span class="subtitle">dir. nombre del director</span>
+                                    <span class="director">dir: nombre del director</span>
                                     <span class="date">2026</span>
                                 </div>
                             </div>
@@ -141,29 +142,31 @@
                             <!-- Comercial 2 -->
                             <div class="entry">
                                 <div class="video-placeholder">
-                                    [Aquí irá el iframe de Vimeo]
+                                    [iframe de Vimeo 16:9]
                                 </div>
                                 <div class="titles">
                                     <div class="title">título del comercial</div>
-                                    <span class="subtitle">dir. nombre del director</span>
+                                    <span class="director">dir: nombre del director</span>
                                     <span class="date">2026</span>
                                 </div>
                             </div>
 
                         </div>
+                    </div>
 
-                        <!-- AÑO 2025 -->
-                        <h1 class="year-header">2025</h1>
+                    <!-- SECCIÓN AÑO 2025 -->
+                    <div class="year-section">
+                        <h2 class="year-header">2025</h2>
                         <div class="entries-grid">
                             
                             <!-- Comercial 3 -->
                             <div class="entry">
                                 <div class="video-placeholder">
-                                    [Aquí irá el iframe de Vimeo]
+                                    [iframe de Vimeo 16:9]
                                 </div>
                                 <div class="titles">
                                     <div class="title">título del comercial</div>
-                                    <span class="subtitle">dir. nombre del director</span>
+                                    <span class="director">dir: nombre del director</span>
                                     <span class="date">2025</span>
                                 </div>
                             </div>
@@ -171,18 +174,18 @@
                             <!-- Comercial 4 -->
                             <div class="entry">
                                 <div class="video-placeholder">
-                                    [Aquí irá el iframe de Vimeo]
+                                    [iframe de Vimeo 16:9]
                                 </div>
                                 <div class="titles">
                                     <div class="title">título del comercial</div>
-                                    <span class="subtitle">dir. nombre del director</span>
+                                    <span class="director">dir: nombre del director</span>
                                     <span class="date">2025</span>
                                 </div>
                             </div>
 
                         </div>
-
                     </div>
+
                 </div>
 
             </section>
