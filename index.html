@@ -60,9 +60,7 @@
             left: 40px;
             color: #ffffff;
             font-size: 16px;
-            z-index: 3; /* Para que quede por encima del video y el overlay */
-            /* Si prefieres usar la tipografía del título, descomenta la siguiente línea: */
-            /* font-family: 'Alte Haas Grotesk Bold', sans-serif; */
+            z-index: 3;
         }
 
         /* --- SECCIÓN DE GRID (Archivo/Proyectos) --- */
@@ -78,11 +76,25 @@
         .titles .title { font-size: 15px; font-weight: bold; margin-bottom: 4px; }
         .titles .subtitle, .titles .date { font-size: 14px; color: #666; display: block; }
         
-        /* --- FOOTER --- */
-        footer.divider { border-top: 1px solid #000; margin: 0 40px; padding: 40px 0; font-size: 13px; }
-        .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-        .footer-cols p { margin-bottom: 15px; color: #333; }
-        .footer-cols strong { font-weight: bold; color: #000; }
+        /* --- FOOTER SIMPLIFICADO --- */
+        footer.divider { 
+            border-top: 1px solid #000; 
+            margin: 0 40px; 
+            padding: 30px 0; 
+            font-size: 13px; 
+            color: #666;
+        }
+        
+        .footer-credit {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: normal;
+        }
+
+        .footer-credit strong {
+            font-family: 'Alte Haas Grotesk Bold', sans-serif;
+            font-weight: normal;
+            color: #000;
+        }
         
         /* --- RESPONSIVO --- */
         @media (max-width: 768px) {
@@ -90,11 +102,10 @@
             .main-header .container { flex-direction: column; gap: 15px; align-items: flex-start; }
             nav.main { flex-wrap: wrap; gap: 15px; }
             .full-width-banner { height: 50vh; margin-bottom: 40px; }
-            .banner-caption { left: 20px; bottom: 20px; } /* Ajuste de márgenes para celular */
+            .banner-caption { left: 20px; bottom: 20px; }
             .grid-container { padding: 0 20px; margin-bottom: 60px; }
             .entries-grid { grid-template-columns: 1fr; gap: 50px; }
             footer.divider { margin: 0 20px; }
-            .footer-cols { grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
@@ -198,40 +209,12 @@
             </section>
         </div>
         
-        <!-- FOOTER DE 4 COLUMNAS -->
-        <footer class="divider show4col" id="contacto">
-            <div class="container clearfix">
-                <div class="footer-cols">
-                    <div class="footer-col1">
-                        <p>
-                            <strong>Federico Barbabosa</strong><br />
-                            Ciudad de México<br />
-                            Tel. +52 55 00 00 00 00<br />
-                            <a href="mailto:fedebarba@gmail.com">fedebarba@gmail.com</a>
-                        </p>
-                    </div>
-                    <div class="footer-col2">
-                        <p>
-                            <strong>Horarios</strong><br />
-                            Lunes a viernes: 10 am — 6 pm<br />
-                            Sábado: previa cita
-                        </p>
-                    </div>
-                    <div class="footer-col3">
-                        <p>
-                            <strong>Redes</strong><br />
-                            <a href="#">Instagram</a><br />
-                            <a href="#">Vimeo</a><br />
-                            <a href="#">IMDb</a>
-                        </p>
-                    </div>
-                    <div class="footer-col4">
-                        <p>
-                            <a href="#">Términos y condiciones</a><br />
-                            <a href="#">Aviso de privacidad</a>
-                        </p>
-                    </div>
-                </div>
+        <!-- FOOTER SIMPLIFICADO -->
+        <footer class="divider" id="contacto">
+            <div class="container">
+                <p class="footer-credit">
+                    <strong>Diseño de sitio web</strong>, Taller Monclova
+                </p>
             </div>
         </footer>
     </div>
