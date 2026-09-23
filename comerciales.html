@@ -54,20 +54,50 @@
             font-weight: normal;
         }
 
-        /* --- SECCIÓN DE GRID (Proyectos) --- */
+        /* --- SECCIÓN DE COMERCIALES (Columna Centrada) --- */
         .contentWrapper { flex: 1; padding-top: 40px; }
-        .grid-container { padding: 0 40px; margin-bottom: 100px; }
-        .section-header.divider { border-top: 1px solid #000; padding-top: 10px; margin-bottom: 30px; }
+        .commercials-section { padding: 0 40px; margin-bottom: 100px; }
+        .section-header.divider { border-top: 1px solid #000; padding-top: 10px; margin-bottom: 50px; }
         .section-header h1 { font-size: 18px; font-weight: normal; }
         
-        .entries-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 80px 40px; }
-        .entry { display: block; cursor: pointer; }
-        .entry .placeholder { width: 100%; aspect-ratio: 4 / 3; background-color: #f2f2f2; margin-bottom: 15px; overflow: hidden; }
-        .entry .placeholder img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s ease; }
-        .entry:hover .placeholder img { opacity: 0.8; }
+        .commercials-list {
+            display: flex;
+            flex-direction: column;
+            gap: 80px; /* Separación vertical entre los videos */
+            max-width: 1000px; /* Ancho máximo para centrar los videos */
+            margin: 0 auto; /* Centra el contenedor en la página */
+        }
         
-        .titles .title { font-size: 15px; font-weight: bold; margin-bottom: 4px; }
-        .titles .subtitle, .titles .date { font-size: 14px; color: #666; display: block; }
+        .commercial-entry {
+            display: block;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .commercial-entry .placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Proporción panorámica para video */
+            background-color: #f2f2f2;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .commercial-entry .placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+        
+        .commercial-entry:hover .placeholder img {
+            opacity: 0.8;
+        }
+        
+        .commercial-title {
+            text-align: left;
+            font-size: 15px;
+            font-weight: bold;
+        }
         
         /* --- FOOTER SIMPLIFICADO --- */
         footer.divider { 
@@ -94,8 +124,8 @@
             .main-header { padding: 20px; }
             .main-header .container { flex-direction: column; gap: 15px; align-items: flex-start; }
             nav.main { flex-wrap: wrap; gap: 15px; }
-            .grid-container { padding: 0 20px; margin-bottom: 60px; }
-            .entries-grid { grid-template-columns: 1fr; gap: 50px; }
+            .commercials-section { padding: 0 20px; margin-bottom: 60px; }
+            .commercials-list { gap: 50px; }
             footer.divider { margin: 0 20px; }
         }
     </style>
@@ -105,7 +135,6 @@
         <!-- CABECERA -->
         <header class="main-header">
             <div class="container">
-                <!-- AQUÍ ESTÁ EL ENLACE QUE LLEVA A INDEX.HTML -->
                 <a class="logo" href="index.html">
                     <span class="brand-name">Federico Barbabosa</span> 
                     <span class="brand-title">— Cinematographer</span>
@@ -119,74 +148,114 @@
             </div>
         </header>
         
+        <!-- CONTENIDO PRINCIPAL -->
         <div id="contentWrapper" class="contentWrapper">
-            <section class="custom_page">
-                <!-- SECCIÓN DE PROYECTOS (Grid) -->
-                <section id="wrapper-associations">
-                    <div class="associations">
-                        <div id="projects-grid" class="grid-container">
-                            <div class="container">
-                                <header class="section-header divider">
-                                    <h1>Commercials</h1>
-                                </header>
+            <section class="commercials-section">
+                <header class="section-header divider">
+                    <h1>Commercials</h1>
+                </header>
+                
+                <div class="commercials-list">
+                    <!-- Placeholder 1 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm1/1280/720?grayscale" alt="Comercial 1" />
                             </div>
-                            <div class="container entries-grid">
-                                <!-- Comercial 1 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/comm1/800/600?grayscale" alt="Comercial 1" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del comercial</div>
-                                            <span class="subtitle">Marca / Cliente</span>
-                                            <span class="date">2026</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- Comercial 2 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/comm2/800/600?grayscale" alt="Comercial 2" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del comercial</div>
-                                            <span class="subtitle">Marca / Cliente</span>
-                                            <span class="date">2026</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- Comercial 3 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/comm3/800/600?grayscale" alt="Comercial 3" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del comercial</div>
-                                            <span class="subtitle">Marca / Cliente</span>
-                                            <span class="date">2025</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- Comercial 4 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/comm4/800/600?grayscale" alt="Comercial 4" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del comercial</div>
-                                            <span class="subtitle">Marca / Cliente</span>
-                                            <span class="date">2025</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                            <div class="commercial-title">Título 1</div>
+                        </a>
                     </div>
-                </section>
+                    
+                    <!-- Placeholder 2 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm2/1280/720?grayscale" alt="Comercial 2" />
+                            </div>
+                            <div class="commercial-title">Título 2</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 3 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm3/1280/720?grayscale" alt="Comercial 3" />
+                            </div>
+                            <div class="commercial-title">Título 3</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 4 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm4/1280/720?grayscale" alt="Comercial 4" />
+                            </div>
+                            <div class="commercial-title">Título 4</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 5 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm5/1280/720?grayscale" alt="Comercial 5" />
+                            </div>
+                            <div class="commercial-title">Título 5</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 6 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm6/1280/720?grayscale" alt="Comercial 6" />
+                            </div>
+                            <div class="commercial-title">Título 6</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 7 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm7/1280/720?grayscale" alt="Comercial 7" />
+                            </div>
+                            <div class="commercial-title">Título 7</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 8 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm8/1280/720?grayscale" alt="Comercial 8" />
+                            </div>
+                            <div class="commercial-title">Título 8</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 9 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm9/1280/720?grayscale" alt="Comercial 9" />
+                            </div>
+                            <div class="commercial-title">Título 9</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 10 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm10/1280/720?grayscale" alt="Comercial 10" />
+                            </div>
+                            <div class="commercial-title">Título 10</div>
+                        </a>
+                    </div>
+                </div>
             </section>
         </div>
         
