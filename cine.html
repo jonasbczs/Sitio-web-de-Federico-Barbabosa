@@ -54,15 +54,15 @@
             font-weight: normal;
         }
 
-        /* --- SECCIÓN DE FEATURES (Columna Centrada, formato igual a comerciales) --- */
-        .contentWrapper { flex: 1; padding-top: 40px; }
+        /* --- SECCIÓN DE FEATURES --- */
+        /* Se redujo el padding-top para elevar la línea negra */
+        .contentWrapper { flex: 1; padding-top: 5px; }
         .features-section { padding: 0 40px; margin-bottom: 100px; }
-        .section-header.divider { border-top: 1px solid #000; padding-top: 10px; margin-bottom: 50px; }
         
-        /* TÍTULO EN TIPOGRAFÍA NORMAL */
-        .section-header h1 { 
-            font-size: 18px; 
-            font-weight: normal; 
+        /* Línea divisoria pegada arriba y sin título */
+        .section-header.divider { 
+            border-top: 1px solid #000; 
+            margin-bottom: 50px; 
         }
         
         .features-list {
@@ -156,9 +156,8 @@
         <!-- CONTENIDO PRINCIPAL -->
         <div id="contentWrapper" class="contentWrapper">
             <section class="features-section">
-                <header class="section-header divider">
-                    <h1>Features</h1>
-                </header>
+                <!-- Se eliminó el <h1>Features</h1> y quedó solo la línea -->
+                <header class="section-header divider"></header>
                 
                 <div class="features-list">
                     <!-- Placeholder 1 -->
