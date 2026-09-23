@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-    <title>Federico Barbabosa — Cinematographer</title>
+    <title>Commercials | Federico Barbabosa — Cinematographer</title>
     
     <style>
         /* --- DECLARACIÓN DE LA TIPOGRAFÍA PERSONALIZADA --- */
@@ -16,11 +16,11 @@
 
         /* --- ESTILOS BASE --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #000000; background-color: #ffffff; font-size: 14px; line-height: 1.4; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #000000; background-color: #ffffff; font-size: 14px; line-height: 1.4; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; min-height: 100vh; }
         a { text-decoration: none; color: inherit; }
         
         /* --- LIMITADOR DE ANCHO PARA PANTALLAS GRANDES --- */
-        .page-container { max-width: 1400px; margin: 0 auto; background-color: #ffffff; }
+        .page-container { max-width: 1400px; margin: 0 auto; background-color: #ffffff; flex: 1; display: flex; flex-direction: column; width: 100%; }
         
         /* --- CABECERA FIJA --- */
         .main-header { position: sticky; top: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); padding: 25px 40px; z-index: 1000; }
@@ -54,33 +54,50 @@
             font-weight: normal;
         }
 
-        /* --- BANNER PRINCIPAL (Hero / Video Background Autoplay) --- */
-        .full-width-banner { position: relative; width: 100%; height: 75vh; background-color: #000000; margin-bottom: 25px; overflow: hidden; }
-        .video-background { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translateX(-50%) translateY(-50%); object-fit: cover; z-index: 1; }
-        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); z-index: 2; }
-        
-        /* --- TEXTO SOBRE EL VIDEO (Esquina inferior izquierda) --- */
-        .banner-caption {
-            position: absolute;
-            bottom: 30px;
-            left: 40px;
-            color: #ffffff;
-            font-size: 16px;
-            z-index: 3;
-        }
-
-        /* --- SECCIÓN DE GRID (Archivo/Proyectos) --- */
-        .grid-container { padding: 0 40px; margin-bottom: 100px; }
-        .section-header.divider { border-top: 1px solid #000; padding-top: 10px; margin-bottom: 30px; }
+        /* --- SECCIÓN DE COMERCIALES (Columna Centrada) --- */
+        .contentWrapper { flex: 1; padding-top: 40px; }
+        .commercials-section { padding: 0 40px; margin-bottom: 100px; }
+        .section-header.divider { border-top: 1px solid #000; padding-top: 10px; margin-bottom: 50px; }
         .section-header h1 { font-size: 18px; font-weight: normal; }
-        .entries-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 80px 40px; }
-        .entry { display: block; cursor: pointer; }
-        .entry .placeholder { width: 100%; aspect-ratio: 4 / 3; background-color: #f2f2f2; margin-bottom: 15px; overflow: hidden; }
-        .entry .placeholder img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s ease; }
-        .entry:hover .placeholder img { opacity: 0.8; }
         
-        .titles .title { font-size: 15px; font-weight: bold; margin-bottom: 4px; }
-        .titles .subtitle, .titles .date { font-size: 14px; color: #666; display: block; }
+        .commercials-list {
+            display: flex;
+            flex-direction: column;
+            gap: 80px; /* Separación vertical entre los videos */
+            max-width: 1000px; /* Ancho máximo para centrar los videos */
+            margin: 0 auto; /* Centra el contenedor en la página */
+        }
+        
+        .commercial-entry {
+            display: block;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .commercial-entry .placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Proporción panorámica para video */
+            background-color: #f2f2f2;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .commercial-entry .placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+        
+        .commercial-entry:hover .placeholder img {
+            opacity: 0.8;
+        }
+        
+        .commercial-title {
+            text-align: left;
+            font-size: 15px;
+            font-weight: bold;
+        }
         
         /* --- FOOTER SIMPLIFICADO --- */
         footer.divider { 
@@ -107,10 +124,8 @@
             .main-header { padding: 20px; }
             .main-header .container { flex-direction: column; gap: 15px; align-items: flex-start; }
             nav.main { flex-wrap: wrap; gap: 15px; }
-            .full-width-banner { height: 50vh; margin-bottom: 20px; }
-            .banner-caption { left: 20px; bottom: 20px; }
-            .grid-container { padding: 0 20px; margin-bottom: 60px; }
-            .entries-grid { grid-template-columns: 1fr; gap: 50px; }
+            .commercials-section { padding: 0 20px; margin-bottom: 60px; }
+            .commercials-list { gap: 50px; }
             footer.divider { margin: 0 20px; }
         }
     </style>
@@ -125,94 +140,122 @@
                     <span class="brand-title">— Cinematographer</span>
                 </a>
                 <nav class="main">
-                    <a href="index.html" class="active">Home</a>
+                    <a href="index.html">Home</a>
                     <a href="cine.html">Features</a>
-                    <a href="comerciales.html">Commercials</a>
+                    <a href="comerciales.html" class="active">Commercials</a>
                     <a href="contacto.html">Contact</a>
                 </nav>
             </div>
         </header>
         
+        <!-- CONTENIDO PRINCIPAL -->
         <div id="contentWrapper" class="contentWrapper">
-            <section class="custom_page">
-                <!-- BANNER ROTATIVO (Hero / Video Background Autoplay) -->
-                <section id="wrapper-banner-rotate">
-                    <div class="full-width-banner">
-                        <div class="video-overlay"></div>
-                        <video class="video-background" autoplay muted loop playsinline>
-                            <source src="reel-fondo.mp4" type="video/mp4">
-                        </video>
-                        <!-- TEXTO EN LA ESQUINA INFERIOR IZQUIERDA -->
-                        <div class="banner-caption">Toyota</div>
-                    </div>
-                </section>
-
-                <!-- SECCIÓN DE PROYECTOS (Grid) -->
-                <section id="wrapper-associations">
-                    <div class="associations">
-                        <div id="projects-grid" class="grid-container">
-                            <div class="container">
-                                <header class="section-header divider">
-                                    <h1>Home</h1>
-                                </header>
+            <section class="commercials-section">
+                <header class="section-header divider">
+                    <h1>Commercials</h1>
+                </header>
+                
+                <div class="commercials-list">
+                    <!-- Placeholder 1 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm1/1280/720?grayscale" alt="Comercial 1" />
                             </div>
-                            <div class="container entries-grid">
-                                <!-- Proyecto 1 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv1/800/600?grayscale" alt="Proyecto 1" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del proyecto</div>
-                                            <span class="subtitle">Dirección de fotografía</span>
-                                            <span class="date">2026</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- Proyecto 2 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv2/800/600?grayscale" alt="Proyecto 2" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del proyecto</div>
-                                            <span class="subtitle">Dirección de fotografía</span>
-                                            <span class="date">2026</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- Proyecto 3 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv3/800/600?grayscale" alt="Proyecto 3" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del proyecto</div>
-                                            <span class="subtitle">Dirección de fotografía</span>
-                                            <span class="date">2025</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- Proyecto 4 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <img src="https://picsum.photos/seed/mclv4/800/600?grayscale" alt="Proyecto 4" />
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del proyecto</div>
-                                            <span class="subtitle">Dirección de fotografía</span>
-                                            <span class="date">2025</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                            <div class="commercial-title">Título 1</div>
+                        </a>
                     </div>
-                </section>
+                    
+                    <!-- Placeholder 2 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm2/1280/720?grayscale" alt="Comercial 2" />
+                            </div>
+                            <div class="commercial-title">Título 2</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 3 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm3/1280/720?grayscale" alt="Comercial 3" />
+                            </div>
+                            <div class="commercial-title">Título 3</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 4 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm4/1280/720?grayscale" alt="Comercial 4" />
+                            </div>
+                            <div class="commercial-title">Título 4</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 5 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm5/1280/720?grayscale" alt="Comercial 5" />
+                            </div>
+                            <div class="commercial-title">Título 5</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 6 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm6/1280/720?grayscale" alt="Comercial 6" />
+                            </div>
+                            <div class="commercial-title">Título 6</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 7 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm7/1280/720?grayscale" alt="Comercial 7" />
+                            </div>
+                            <div class="commercial-title">Título 7</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 8 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm8/1280/720?grayscale" alt="Comercial 8" />
+                            </div>
+                            <div class="commercial-title">Título 8</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 9 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm9/1280/720?grayscale" alt="Comercial 9" />
+                            </div>
+                            <div class="commercial-title">Título 9</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Placeholder 10 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <img src="https://picsum.photos/seed/comm10/1280/720?grayscale" alt="Comercial 10" />
+                            </div>
+                            <div class="commercial-title">Título 10</div>
+                        </a>
+                    </div>
+                </div>
             </section>
         </div>
         
@@ -220,7 +263,7 @@
         <footer class="divider" id="contacto">
             <div class="container">
                 <p class="footer-credit">
-                    <strong>Web Design:</strong> Colectivo Monclova
+                    <strong>Website Design:</strong> Colectivo Monclova
                 </p>
             </div>
         </footer>
