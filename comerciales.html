@@ -70,6 +70,7 @@
             color: #999;
             font-size: 13px;
             border: 1px dashed #ccc; /* Borde punteado para indicar que es un placeholder */
+            overflow: hidden; /* Asegura que el video no se salga del borde */
         }
 
         .video-placeholder iframe {
@@ -127,10 +128,10 @@
                         <h2 class="year-header">2026</h2>
                         <div class="entries-grid">
                             
-                            <!-- Comercial 1 -->
+                            <!-- Comercial 1 (CON VIDEO DE VIMEO) -->
                             <div class="entry">
-                                <div class="video-placeholder">
-                                    [iframe de Vimeo 16:9]
+                                <div class="video-placeholder" style="border: none;"> <!-- Quitamos el borde punteado porque ya tiene video -->
+                                    <iframe src="https://player.vimeo.com/video/1229615388?h=2334e15d8f&title=0&byline=0&portrait=0" class="vimeo-iframe" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                                 <div class="titles">
                                     <div class="title">título del comercial</div>
