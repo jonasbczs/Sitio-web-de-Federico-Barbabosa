@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-    <title>Federico Barbabosa Cinematographer</title>
+    <title>Federico Barbabosa — Cinematographer</title>
     
     <style>
         /* --- DECLARACIÓN DE LA TIPOGRAFÍA PERSONALIZADA --- */
@@ -44,17 +44,17 @@
 
         /* --- LOGOTIPO (AHORA GRANDE Y CENTRAL) --- */
         .logo { 
-            text-align: center;
+            text-align: center; /* Centra todo el contenido de texto en el interior */
             letter-spacing: -0.5px; 
             text-transform: none;
-            margin-bottom: 25px; /* Espacio entre el nombre y el menú */
+            margin-bottom: 25px; /* Espacio entre el título y el menú */
         }
         
         .logo .brand-name {
             font-family: 'Alte Haas Grotesk Bold', sans-serif; 
             font-weight: normal; 
             font-size: 48px; /* Tamaño mucho más grande */
-            display: block; /* Para que "Cinematographer" caiga abajo si se desea, o mantenerlo en línea */
+            display: block; /* Obliga a que ocupe su propia línea */
         }
 
         .logo .brand-title {
@@ -62,6 +62,8 @@
             font-weight: normal;
             font-size: 32px; 
             color: #333; /* Un gris oscuro para darle jerarquía visual */
+            display: block; /* Obliga a que caiga a la siguiente línea */
+            margin-top: 5px; /* Da un pequeñísimo respiro entre el nombre y el subtítulo */
         }
 
         /* --- NAVEGACIÓN (LETRAS MÁS CHICAS DEBAJO DEL NOMBRE) --- */
@@ -110,8 +112,8 @@
         /* --- RESPONSIVO --- */
         @media (max-width: 768px) {
             .logo .brand-name { font-size: 32px; }
-            .logo .brand-title { font-size: 20px; display: block; margin-top: 5px; }
-            nav.main { gap: 15px; flex-wrap: wrap; }
+            .logo .brand-title { font-size: 20px; }
+            nav.main { gap: 15px; flex-wrap: wrap; justify-content: center; }
             footer.bottom-footer { padding: 15px 20px; }
         }
     </style>
@@ -123,7 +125,7 @@
         <!-- LOGO GRANDE -->
         <a class="logo" href="index.html">
             <span class="brand-name">Federico Barbabosa</span> 
-            <span class="brand-title">— Cinematographer</span>
+            <span class="brand-title">Cinematographer</span>
         </a>
         
         <!-- MENÚ CHICO DEBAJO -->
