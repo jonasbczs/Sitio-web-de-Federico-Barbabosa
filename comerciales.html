@@ -73,22 +73,23 @@
             width: 100%;
         }
         
+        /* --- AJUSTES PARA EL REPRODUCTOR DE VIMEO --- */
         .commercial-entry .placeholder {
             width: 100%;
             aspect-ratio: 16 / 9; 
             background-color: #f2f2f2;
             margin-bottom: 15px;
-            overflow: hidden;
             position: relative;
+            overflow: hidden;
         }
         
-        /* El video se adapta al contenedor */
-        .commercial-entry .placeholder video {
+        .commercial-entry .placeholder iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            display: block;
-            outline: none;
+            border: 0;
         }
         
         .commercial-title {
@@ -157,7 +158,7 @@
                     <!-- Comercial 1 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <video src="./comercial1.mp4" poster="https://picsum.photos/seed/comm1/1280/720?grayscale" controls playsinline></video>
+                            <iframe src="https://player.vimeo.com/video/76979871?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="commercial-title">Título 1</div>
                     </div>
@@ -165,7 +166,7 @@
                     <!-- Comercial 2 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <video src="./comercial2.mp4" poster="https://picsum.photos/seed/comm2/1280/720?grayscale" controls playsinline></video>
+                            <iframe src="https://player.vimeo.com/video/76979871?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="commercial-title">Título 2</div>
                     </div>
@@ -173,7 +174,7 @@
                     <!-- Comercial 3 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <video src="./comercial3.mp4" poster="https://picsum.photos/seed/comm3/1280/720?grayscale" controls playsinline></video>
+                            <iframe src="https://player.vimeo.com/video/76979871?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="commercial-title">Título 3</div>
                     </div>
@@ -181,7 +182,7 @@
                     <!-- Comercial 4 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <video src="./comercial4.mp4" poster="https://picsum.photos/seed/comm4/1280/720?grayscale" controls playsinline></video>
+                            <iframe src="https://player.vimeo.com/video/76979871?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="commercial-title">Título 4</div>
                     </div>
@@ -189,7 +190,7 @@
                     <!-- Comercial 5 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <video src="./comercial5.mp4" poster="https://picsum.photos/seed/comm5/1280/720?grayscale" controls playsinline></video>
+                            <iframe src="https://player.vimeo.com/video/76979871?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="commercial-title">Título 5</div>
                     </div>
@@ -197,7 +198,7 @@
                     <!-- Comercial 6 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <video src="./comercial6.mp4" poster="https://picsum.photos/seed/comm6/1280/720?grayscale" controls playsinline></video>
+                            <iframe src="https://player.vimeo.com/video/76979871?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="commercial-title">Título 6</div>
                     </div>
@@ -205,7 +206,7 @@
                     <!-- Comercial 7 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <video src="./comercial7.mp4" poster="https://picsum.photos/seed/comm7/1280/720?grayscale" controls playsinline></video>
+                            <iframe src="https://player.vimeo.com/video/76979871?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="commercial-title">Título 7</div>
                     </div>
@@ -213,7 +214,7 @@
                     <!-- Comercial 8 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <video src="./comercial8.mp4" poster="https://picsum.photos/seed/comm8/1280/720?grayscale" controls playsinline></video>
+                            <iframe src="https://player.vimeo.com/video/76979871?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="commercial-title">Título 8</div>
                     </div>
@@ -221,7 +222,7 @@
                     <!-- Comercial 9 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <video src="./comercial9.mp4" poster="https://picsum.photos/seed/comm9/1280/720?grayscale" controls playsinline></video>
+                            <iframe src="https://player.vimeo.com/video/76979871?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="commercial-title">Título 9</div>
                     </div>
@@ -229,7 +230,7 @@
                     <!-- Comercial 10 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <video src="./comercial10.mp4" poster="https://picsum.photos/seed/comm10/1280/720?grayscale" controls playsinline></video>
+                            <iframe src="https://player.vimeo.com/video/76979871?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="commercial-title">Título 10</div>
                     </div>
@@ -246,39 +247,5 @@
             </div>
         </footer>
     </div>
-
-    <!-- SCRIPT PARA PANTALLA COMPLETA AL DAR PLAY -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const videos = document.querySelectorAll('.commercial-entry video');
-            
-            videos.forEach(video => {
-                // Cuando el video empieza a reproducirse
-                video.addEventListener('play', function() {
-                    // Si no está ya en pantalla completa, solicitarla
-                    if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-                        if (video.requestFullscreen) {
-                            video.requestFullscreen();
-                        } else if (video.webkitRequestFullscreen) { // Safari
-                            video.webkitRequestFullscreen();
-                        } else if (video.msRequestFullscreen) { // IE11
-                            video.msRequestFullscreen();
-                        }
-                    }
-                });
-
-                // Función para pausar el video si el usuario sale de pantalla completa
-                const exitHandler = () => {
-                    if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
-                        video.pause();
-                    }
-                };
-
-                video.addEventListener('fullscreenchange', exitHandler);
-                video.addEventListener('webkitfullscreenchange', exitHandler);
-                video.addEventListener('msfullscreenchange', exitHandler);
-            });
-        });
-    </script>
 </body>
 </html>
