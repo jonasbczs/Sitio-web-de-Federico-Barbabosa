@@ -71,13 +71,13 @@
 
         /* --- SECCIÓN DE GRID (MOSAICO CENTRADO Y MÁS PEQUEÑO) --- */
         .grid-wrapper {
-            max-width: 800px; /* Hace el mosaico mucho más pequeño */
-            margin: 0 auto 100px auto; /* Centra el bloque entero en la página */
+            max-width: 800px; 
+            margin: 0 auto 100px auto; 
             padding: 0 40px;
         }
         
         .section-header { 
-            text-align: center; /* Centra la palabra Home */
+            text-align: center; 
             margin-bottom: 30px; 
         }
         
@@ -89,7 +89,7 @@
         .entries-grid { 
             display: grid; 
             grid-template-columns: repeat(2, 1fr); 
-            gap: 20px; /* Espacio más ajustado entre videos */
+            gap: 20px; 
         }
         
         .entry { display: block; cursor: pointer; }
@@ -97,7 +97,7 @@
         /* --- ESTILOS DE LOS VIDEOS DEL MOSAICO --- */
         .entry .placeholder { 
             width: 100%; 
-            aspect-ratio: 16 / 9; /* Proporción estándar de video panorámico */
+            aspect-ratio: 16 / 9; 
             background-color: #f2f2f2; 
             overflow: hidden; 
         }
@@ -142,7 +142,7 @@
             .full-width-banner { height: 50vh; margin-bottom: 20px; }
             .banner-caption { left: 20px; bottom: 20px; }
             .grid-wrapper { padding: 0 20px; margin-bottom: 60px; }
-            .entries-grid { grid-template-columns: 1fr; gap: 20px; } /* Se adapta a 1 columna en celulares */
+            .entries-grid { grid-template-columns: 1fr; gap: 20px; }
             footer.divider { margin: 0 20px; }
         }
     </style>
@@ -244,16 +244,7 @@
                                 </a>
                             </div>
                             
-                            <!-- Video 7 -->
-                            <div class="entry">
-                                <a href="#">
-                                    <div class="placeholder">
-                                        <video src="./video7.mp4" autoplay loop muted playsinline></video>
-                                    </div>
-                                </a>
-                            </div>
-                            
-                            <!-- Video 8 -->
+                            <!-- Video 7 (Ahora carga video8.mp4) -->
                             <div class="entry">
                                 <a href="#">
                                     <div class="placeholder">
@@ -262,7 +253,7 @@
                                 </a>
                             </div>
                             
-                            <!-- Video 9 -->
+                            <!-- Video 8 (Ahora carga video9.mp4) -->
                             <div class="entry">
                                 <a href="#">
                                     <div class="placeholder">
@@ -271,7 +262,7 @@
                                 </a>
                             </div>
                             
-                            <!-- Video 10 -->
+                            <!-- Video 9 (Ahora carga video10.mp4) -->
                             <div class="entry">
                                 <a href="#">
                                     <div class="placeholder">
@@ -280,7 +271,16 @@
                                 </a>
                             </div>
                             
-                            <!-- Video 11 -->
+                            <!-- Video 10 (Se quedó como estaba: video10.mp4) -->
+                            <div class="entry">
+                                <a href="#">
+                                    <div class="placeholder">
+                                        <video src="./video10.mp4" autoplay loop muted playsinline></video>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <!-- Video 11 (Se quedó como estaba: video11.mp4) -->
                             <div class="entry">
                                 <a href="#">
                                     <div class="placeholder">
