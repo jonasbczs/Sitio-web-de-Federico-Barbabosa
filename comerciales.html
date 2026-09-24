@@ -54,22 +54,18 @@
             font-weight: normal;
         }
 
-        /* --- SECCIÓN DE COMERCIALES --- */
-        .contentWrapper { flex: 1; padding-top: 5px; }
+        /* --- SECCIÓN DE COMERCIALES (Columna Centrada) --- */
+        .contentWrapper { flex: 1; padding-top: 40px; }
         .commercials-section { padding: 0 40px; margin-bottom: 100px; }
-        
-        /* Línea divisoria pegada arriba y sin título */
-        .section-header.divider { 
-            border-top: 1px solid #000; 
-            margin-bottom: 50px; 
-        }
+        .section-header.divider { border-top: 1px solid #000; padding-top: 10px; margin-bottom: 50px; }
+        .section-header h1 { font-size: 18px; font-weight: normal; }
         
         .commercials-list {
             display: flex;
             flex-direction: column;
-            gap: 80px; /* Separación vertical entre los videos */
-            max-width: 700px; /* Ancho máximo para centrar los placeholders */
-            margin: 0 auto; /* Centra el contenedor en la página */
+            gap: 80px; 
+            max-width: 700px; 
+            margin: 0 auto; 
         }
         
         .commercial-entry {
@@ -77,31 +73,22 @@
             width: 100%;
         }
         
-        .commercial-entry a {
-            display: block;
-            cursor: pointer;
-        }
-
         .commercial-entry .placeholder {
             width: 100%;
-            aspect-ratio: 16 / 9; /* Proporción panorámica para video */
+            aspect-ratio: 16 / 9; 
             background-color: #f2f2f2;
             margin-bottom: 15px;
             overflow: hidden;
             position: relative;
         }
         
-        .commercial-entry .placeholder img,
-        .commercial-entry .placeholder iframe {
+        /* El video se adapta al contenedor */
+        .commercial-entry .placeholder video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border: none;
-            transition: opacity 0.3s ease;
-        }
-        
-        .commercial-entry a:hover .placeholder img {
-            opacity: 0.8;
+            display: block;
+            outline: none;
         }
         
         .commercial-title {
@@ -162,87 +149,89 @@
         <!-- CONTENIDO PRINCIPAL -->
         <div id="contentWrapper" class="contentWrapper">
             <section class="commercials-section">
-                <header class="section-header divider"></header>
+                <header class="section-header divider">
+                    <h1>Commercials</h1>
+                </header>
                 
                 <div class="commercials-list">
-                    <!-- Placeholder 1 (Toyota) -->
+                    <!-- Comercial 1 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229741089?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <video src="./comercial1.mp4" poster="https://picsum.photos/seed/comm1/1280/720?grayscale" controls playsinline></video>
                         </div>
-                        <div class="commercial-title">Toyota</div>
+                        <div class="commercial-title">Título 1</div>
                     </div>
                     
-                    <!-- Placeholder 2 (Herradura) -->
+                    <!-- Comercial 2 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229737238?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <video src="./comercial2.mp4" poster="https://picsum.photos/seed/comm2/1280/720?grayscale" controls playsinline></video>
                         </div>
-                        <div class="commercial-title">Herradura</div>
+                        <div class="commercial-title">Título 2</div>
                     </div>
                     
-                    <!-- Placeholder 3 (Toyota) -->
+                    <!-- Comercial 3 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229739954?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <video src="./comercial3.mp4" poster="https://picsum.photos/seed/comm3/1280/720?grayscale" controls playsinline></video>
                         </div>
-                        <div class="commercial-title">Toyota</div>
+                        <div class="commercial-title">Título 3</div>
                     </div>
                     
-                    <!-- Placeholder 4 (Cinépolis) -->
+                    <!-- Comercial 4 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229738771?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <video src="./comercial4.mp4" poster="https://picsum.photos/seed/comm4/1280/720?grayscale" controls playsinline></video>
                         </div>
-                        <div class="commercial-title">Cinépolis</div>
+                        <div class="commercial-title">Título 4</div>
                     </div>
                     
-                    <!-- Placeholder 5 (Nissan) -->
+                    <!-- Comercial 5 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229739199?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <video src="./comercial5.mp4" poster="https://picsum.photos/seed/comm5/1280/720?grayscale" controls playsinline></video>
                         </div>
-                        <div class="commercial-title">Nissan</div>
+                        <div class="commercial-title">Título 5</div>
                     </div>
                     
-                    <!-- Placeholder 6 (Toyota) -->
+                    <!-- Comercial 6 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229738213?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <video src="./comercial6.mp4" poster="https://picsum.photos/seed/comm6/1280/720?grayscale" controls playsinline></video>
                         </div>
-                        <div class="commercial-title">Toyota</div>
+                        <div class="commercial-title">Título 6</div>
                     </div>
                     
-                    <!-- Placeholder 7 (Marinela) -->
+                    <!-- Comercial 7 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229741629?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <video src="./comercial7.mp4" poster="https://picsum.photos/seed/comm7/1280/720?grayscale" controls playsinline></video>
                         </div>
-                        <div class="commercial-title">Marinela</div>
+                        <div class="commercial-title">Título 7</div>
                     </div>
                     
-                    <!-- Placeholder 8 (Loreal) -->
+                    <!-- Comercial 8 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229705975?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <video src="./comercial8.mp4" poster="https://picsum.photos/seed/comm8/1280/720?grayscale" controls playsinline></video>
                         </div>
-                        <div class="commercial-title">Loreal</div>
+                        <div class="commercial-title">Título 8</div>
                     </div>
                     
-                    <!-- Placeholder 9 (Manzanita Sol con video incrustado 1229742273) -->
+                    <!-- Comercial 9 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229742273?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <video src="./comercial9.mp4" poster="https://picsum.photos/seed/comm9/1280/720?grayscale" controls playsinline></video>
                         </div>
-                        <div class="commercial-title">Manzanita Sol</div>
+                        <div class="commercial-title">Título 9</div>
                     </div>
                     
-                    <!-- Placeholder 10 (Centenario con video incrustado 1229742577) -->
+                    <!-- Comercial 10 -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229742577?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <video src="./comercial10.mp4" poster="https://picsum.photos/seed/comm10/1280/720?grayscale" controls playsinline></video>
                         </div>
-                        <div class="commercial-title">Centenario</div>
+                        <div class="commercial-title">Título 10</div>
                     </div>
                 </div>
             </section>
@@ -257,5 +246,39 @@
             </div>
         </footer>
     </div>
+
+    <!-- SCRIPT PARA PANTALLA COMPLETA AL DAR PLAY -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('.commercial-entry video');
+            
+            videos.forEach(video => {
+                // Cuando el video empieza a reproducirse
+                video.addEventListener('play', function() {
+                    // Si no está ya en pantalla completa, solicitarla
+                    if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+                        if (video.requestFullscreen) {
+                            video.requestFullscreen();
+                        } else if (video.webkitRequestFullscreen) { // Safari
+                            video.webkitRequestFullscreen();
+                        } else if (video.msRequestFullscreen) { // IE11
+                            video.msRequestFullscreen();
+                        }
+                    }
+                });
+
+                // Función para pausar el video si el usuario sale de pantalla completa
+                const exitHandler = () => {
+                    if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+                        video.pause();
+                    }
+                };
+
+                video.addEventListener('fullscreenchange', exitHandler);
+                video.addEventListener('webkitfullscreenchange', exitHandler);
+                video.addEventListener('msfullscreenchange', exitHandler);
+            });
+        });
+    </script>
 </body>
 </html>
