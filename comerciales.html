@@ -55,6 +55,7 @@
         }
 
         /* --- SECCIÓN DE COMERCIALES --- */
+        /* Se redujo el padding-top para elevar la línea negra */
         .contentWrapper { flex: 1; padding-top: 5px; }
         .commercials-section { padding: 0 40px; margin-bottom: 100px; }
         
@@ -162,36 +163,36 @@
         <!-- CONTENIDO PRINCIPAL -->
         <div id="contentWrapper" class="contentWrapper">
             <section class="commercials-section">
-                <!-- Línea divisoria superior -->
+                <!-- Se eliminó el <h1>Commercials</h1> y quedó solo la línea -->
                 <header class="section-header divider"></header>
                 
                 <div class="commercials-list">
-                    <!-- Placeholder 1 (Toyota con video incrustado de Vimeo) -->
-                    <div class="commercial-entry">
-                        <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229737238?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="commercial-title">Toyota</div>
-                    </div>
-                    
-                    <!-- Placeholder 2 -->
+                    <!-- Placeholder 1 -->
                     <div class="commercial-entry">
                         <a href="#">
                             <div class="placeholder">
-                                <img src="https://picsum.photos/seed/comm2/1280/720?grayscale" alt="Comercial 2" />
-                            </div>
-                            <div class="commercial-title">Herradura</div>
-                        </a>
-                    </div>
-                    
-                    <!-- Placeholder 3 -->
-                    <div class="commercial-entry">
-                        <a href="#">
-                            <div class="placeholder">
-                                <img src="https://picsum.photos/seed/comm3/1280/720?grayscale" alt="Comercial 3" />
+                                <img src="https://picsum.photos/seed/comm1/1280/720?grayscale" alt="Comercial 1" />
                             </div>
                             <div class="commercial-title">Toyota</div>
                         </a>
+                    </div>
+                    
+                    <!-- Placeholder 2 (Herradura con video incrustado de Vimeo) -->
+                    <div class="commercial-entry">
+                        <!-- Se quitó la etiqueta 'a' para que el video se pueda reproducir sin redirigir -->
+                        <div class="placeholder">
+                            <iframe src="https://player.vimeo.com/video/1229737238?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="commercial-title">Herradura</div>
+                    </div>
+                    
+                    <!-- Placeholder 3 (Toyota con video incrustado de Vimeo) -->
+                    <div class="commercial-entry">
+                        <!-- Se quitó la etiqueta 'a' para que el video se pueda reproducir sin redirigir -->
+                        <div class="placeholder">
+                            <iframe src="https://player.vimeo.com/video/1229738213?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="commercial-title">Toyota</div>
                     </div>
                     
                     <!-- Placeholder 4 -->
@@ -236,6 +237,7 @@
                     
                     <!-- Placeholder 8 (Loreal con video incrustado de Vimeo) -->
                     <div class="commercial-entry">
+                        <!-- Se quitó la etiqueta 'a' para que el video se pueda reproducir sin redirigir -->
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1229705975?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
