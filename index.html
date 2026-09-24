@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-    <title>Federico Barbabosa — Cinematographer</title>
+    <title>Commercials | Federico Barbabosa — Cinematographer</title>
     
     <style>
         /* --- DECLARACIÓN DE LA TIPOGRAFÍA PERSONALIZADA --- */
@@ -16,11 +16,11 @@
 
         /* --- ESTILOS BASE --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #000000; background-color: #ffffff; font-size: 14px; line-height: 1.4; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #000000; background-color: #ffffff; font-size: 14px; line-height: 1.4; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; min-height: 100vh; }
         a { text-decoration: none; color: inherit; }
         
         /* --- LIMITADOR DE ANCHO PARA PANTALLAS GRANDES --- */
-        .page-container { max-width: 1400px; margin: 0 auto; background-color: #ffffff; }
+        .page-container { max-width: 1400px; margin: 0 auto; background-color: #ffffff; flex: 1; display: flex; flex-direction: column; width: 100%; }
         
         /* --- CABECERA FIJA --- */
         .main-header { position: sticky; top: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); padding: 25px 40px; z-index: 1000; }
@@ -54,49 +54,61 @@
             font-weight: normal;
         }
 
-        /* --- BANNER PRINCIPAL (Hero / Video Background Autoplay) --- */
-        .full-width-banner { position: relative; width: 100%; height: 75vh; background-color: #000000; margin-bottom: 25px; overflow: hidden; }
-        .video-background { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translateX(-50%) translateY(-50%); object-fit: cover; z-index: 1; }
-        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); z-index: 2; }
+        /* --- SECCIÓN DE COMERCIALES --- */
+        .contentWrapper { flex: 1; padding-top: 5px; }
+        .commercials-section { padding: 0 40px; margin-bottom: 100px; }
         
-        /* --- TEXTO SOBRE EL VIDEO (Esquina inferior izquierda) --- */
-        .banner-caption {
-            position: absolute;
-            bottom: 30px;
-            left: 40px;
-            color: #ffffff;
-            font-size: 16px;
-            z-index: 3;
+        /* Línea divisoria pegada arriba y sin título */
+        .section-header.divider { 
+            border-top: 1px solid #000; 
+            margin-bottom: 50px; 
+        }
+        
+        .commercials-list {
+            display: flex;
+            flex-direction: column;
+            gap: 80px; /* Separación vertical entre los videos */
+            max-width: 700px; /* Ancho máximo para centrar los placeholders */
+            margin: 0 auto; /* Centra el contenedor en la página */
+        }
+        
+        .commercial-entry {
+            display: block;
+            width: 100%;
+        }
+        
+        .commercial-entry a {
+            display: block;
+            cursor: pointer;
         }
 
-        /* --- SECCIÓN DE GRID (Archivo/Proyectos) --- */
-        .grid-container { padding: 0 40px; margin-bottom: 100px; }
-        .section-header.divider { border-top: 1px solid #000; padding-top: 10px; margin-bottom: 30px; }
-        .section-header h1 { font-size: 18px; font-weight: normal; }
-        .entries-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 80px 40px; }
-        .entry { display: block; cursor: pointer; }
-        
-        /* --- ESTILOS DE LOS VIDEOS DEL MOSAICO --- */
-        .entry .placeholder { 
-            width: 100%; 
-            aspect-ratio: 4 / 3; /* Proporción un poco más cuadrada que tenías en el index */
-            background-color: #f2f2f2; 
-            margin-bottom: 15px; 
-            overflow: hidden; 
-        }
-        .entry .placeholder video { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            display: block;
-            transition: opacity 0.3s ease; 
-        }
-        .entry:hover .placeholder video { 
-            opacity: 0.85; 
+        .commercial-entry .placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Proporción panorámica para video */
+            background-color: #f2f2f2;
+            margin-bottom: 15px;
+            overflow: hidden;
+            position: relative;
         }
         
-        .titles .title { font-size: 15px; font-weight: bold; margin-bottom: 4px; }
-        .titles .subtitle, .titles .date { font-size: 14px; color: #666; display: block; }
+        .commercial-entry .placeholder img,
+        .commercial-entry .placeholder iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .commercial-entry a:hover .placeholder img {
+            opacity: 0.8;
+        }
+        
+        .commercial-title {
+            text-align: left;
+            font-size: 15px;
+            font-weight: bold;
+        }
         
         /* --- FOOTER SIMPLIFICADO --- */
         footer.divider { 
@@ -123,10 +135,8 @@
             .main-header { padding: 20px; }
             .main-header .container { flex-direction: column; gap: 15px; align-items: flex-start; }
             nav.main { flex-wrap: wrap; gap: 15px; }
-            .full-width-banner { height: 50vh; margin-bottom: 20px; }
-            .banner-caption { left: 20px; bottom: 20px; }
-            .grid-container { padding: 0 20px; margin-bottom: 60px; }
-            .entries-grid { grid-template-columns: 1fr; gap: 50px; }
+            .commercials-section { padding: 0 20px; margin-bottom: 60px; }
+            .commercials-list { gap: 50px; }
             footer.divider { margin: 0 20px; }
         }
     </style>
@@ -141,99 +151,100 @@
                     <span class="brand-title">— Cinematographer</span>
                 </a>
                 <nav class="main">
-                    <a href="index.html" class="active">Home</a>
+                    <a href="index.html">Home</a>
                     <a href="cine.html">Features</a>
-                    <a href="comerciales.html">Commercials</a>
+                    <a href="comerciales.html" class="active">Commercials</a>
                     <a href="contacto.html">Contact</a>
                 </nav>
             </div>
         </header>
         
+        <!-- CONTENIDO PRINCIPAL -->
         <div id="contentWrapper" class="contentWrapper">
-            <section class="custom_page">
-                <!-- BANNER ROTATIVO (Hero / Video Background Autoplay) -->
-                <section id="wrapper-banner-rotate">
-                    <div class="full-width-banner">
-                        <div class="video-overlay"></div>
-                        <video class="video-background" autoplay muted loop playsinline>
-                            <source src="reel-fondo.mp4" type="video/mp4">
-                        </video>
-                        <!-- TEXTO EN LA ESQUINA INFERIOR IZQUIERDA -->
-                        <div class="banner-caption">Toyota</div>
-                    </div>
-                </section>
-
-                <!-- SECCIÓN DE PROYECTOS (Grid) -->
-                <section id="wrapper-associations">
-                    <div class="associations">
-                        <div id="projects-grid" class="grid-container">
-                            <div class="container">
-                                <header class="section-header divider">
-                                    <h1>Home</h1>
-                                </header>
-                            </div>
-                            <div class="container entries-grid">
-                                
-                                <!-- Proyecto 1 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <video src="./video1.mp4" autoplay loop muted playsinline></video>
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del proyecto</div>
-                                            <span class="subtitle">Dirección de fotografía</span>
-                                            <span class="date">2026</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                
-                                <!-- Proyecto 2 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <video src="./video2.mp4" autoplay loop muted playsinline></video>
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del proyecto</div>
-                                            <span class="subtitle">Dirección de fotografía</span>
-                                            <span class="date">2026</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                
-                                <!-- Proyecto 3 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <video src="./video3.mp4" autoplay loop muted playsinline></video>
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del proyecto</div>
-                                            <span class="subtitle">Dirección de fotografía</span>
-                                            <span class="date">2025</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                
-                                <!-- Proyecto 4 -->
-                                <div class="entry">
-                                    <a href="#">
-                                        <div class="placeholder">
-                                            <video src="./video4.mp4" autoplay loop muted playsinline></video>
-                                        </div>
-                                        <div class="titles">
-                                            <div class="title">Título del proyecto</div>
-                                            <span class="subtitle">Dirección de fotografía</span>
-                                            <span class="date">2025</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                
-                            </div>
+            <section class="commercials-section">
+                <header class="section-header divider"></header>
+                
+                <div class="commercials-list">
+                    <!-- Placeholder 1 (Toyota) -->
+                    <div class="commercial-entry">
+                        <div class="placeholder">
+                            <iframe src="https://player.vimeo.com/video/1229741089?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
+                        <div class="commercial-title">Toyota</div>
                     </div>
-                </section>
+                    
+                    <!-- Placeholder 2 (Herradura) -->
+                    <div class="commercial-entry">
+                        <div class="placeholder">
+                            <iframe src="https://player.vimeo.com/video/1229737238?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="commercial-title">Herradura</div>
+                    </div>
+                    
+                    <!-- Placeholder 3 (Toyota) -->
+                    <div class="commercial-entry">
+                        <div class="placeholder">
+                            <iframe src="https://player.vimeo.com/video/1229739954?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="commercial-title">Toyota</div>
+                    </div>
+                    
+                    <!-- Placeholder 4 (Cinépolis) -->
+                    <div class="commercial-entry">
+                        <div class="placeholder">
+                            <iframe src="https://player.vimeo.com/video/1229738771?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="commercial-title">Cinépolis</div>
+                    </div>
+                    
+                    <!-- Placeholder 5 (Nissan) -->
+                    <div class="commercial-entry">
+                        <div class="placeholder">
+                            <iframe src="https://player.vimeo.com/video/1229739199?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="commercial-title">Nissan</div>
+                    </div>
+                    
+                    <!-- Placeholder 6 (Toyota) -->
+                    <div class="commercial-entry">
+                        <div class="placeholder">
+                            <iframe src="https://player.vimeo.com/video/1229738213?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="commercial-title">Toyota</div>
+                    </div>
+                    
+                    <!-- Placeholder 7 (Marinela) -->
+                    <div class="commercial-entry">
+                        <div class="placeholder">
+                            <iframe src="https://player.vimeo.com/video/1229741629?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="commercial-title">Marinela</div>
+                    </div>
+                    
+                    <!-- Placeholder 8 (Loreal) -->
+                    <div class="commercial-entry">
+                        <div class="placeholder">
+                            <iframe src="https://player.vimeo.com/video/1229705975?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="commercial-title">Loreal</div>
+                    </div>
+                    
+                    <!-- Placeholder 9 (Manzanita Sol con video incrustado 1229742273) -->
+                    <div class="commercial-entry">
+                        <div class="placeholder">
+                            <iframe src="https://player.vimeo.com/video/1229742273?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="commercial-title">Manzanita Sol</div>
+                    </div>
+                    
+                    <!-- Placeholder 10 (Centenario con video incrustado 1229742577) -->
+                    <div class="commercial-entry">
+                        <div class="placeholder">
+                            <iframe src="https://player.vimeo.com/video/1229742577?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="commercial-title">Centenario</div>
+                    </div>
+                </div>
             </section>
         </div>
         
@@ -241,7 +252,7 @@
         <footer class="divider" id="contacto">
             <div class="container">
                 <p class="footer-credit">
-                    <strong>Diseño de sitio web</strong>, Taller Monclova
+                    <strong>Website Design:</strong> Colectivo Monclova
                 </p>
             </div>
         </footer>
