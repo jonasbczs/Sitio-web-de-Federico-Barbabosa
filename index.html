@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-    <title>Federico Barbabosa — Cinematographer</title>
+    <title>Commercials | Federico Barbabosa — Cinematographer</title>
     
     <style>
         /* --- DECLARACIÓN DE LA TIPOGRAFÍA PERSONALIZADA --- */
@@ -16,17 +16,17 @@
 
         /* --- ESTILOS BASE --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #000000; background-color: #ffffff; font-size: 14px; line-height: 1.4; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #000000; background-color: #ffffff; font-size: 14px; line-height: 1.4; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; min-height: 100vh; }
         a { text-decoration: none; color: inherit; }
         
         /* --- LIMITADOR DE ANCHO PARA PANTALLAS GRANDES --- */
-        .page-container { max-width: 1400px; margin: 0 auto; background-color: #ffffff; }
+        .page-container { max-width: 1400px; margin: 0 auto; background-color: #ffffff; flex: 1; display: flex; flex-direction: column; width: 100%; }
         
         /* --- CABECERA FIJA --- */
         .main-header { position: sticky; top: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); padding: 25px 40px; z-index: 1000; }
         .main-header .container { display: flex; justify-content: space-between; align-items: baseline; max-width: 1400px; margin: 0 auto; }
         
-        /* --- APLICANDO LA TIPOGRAFÍA AL LOGO --- */
+        /* --- LOGOTIPO Y NAVEGACIÓN --- */
         .logo { 
             font-size: 22px; 
             letter-spacing: -0.5px; 
@@ -48,80 +48,63 @@
         nav.main a { font-size: 16px; transition: color 0.3s ease; }
         nav.main a:hover { color: #888888; }
         
-        /* Estilo para la página actual en la navegación */
         nav.main a.active {
             font-family: 'Alte Haas Grotesk Bold', sans-serif;
             font-weight: normal;
         }
 
-        /* --- BANNER PRINCIPAL (Hero / Video Background Autoplay) --- */
-        /* Se eliminó el margin-bottom para controlar la simetría desde el título */
-        .full-width-banner { position: relative; width: 100%; height: 75vh; background-color: #000000; margin-bottom: 0; overflow: hidden; }
-        .video-background { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translateX(-50%) translateY(-50%); object-fit: cover; z-index: 1; }
-        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); z-index: 2; }
+        /* --- SECCIÓN DE COMERCIALES EN GRID (MOSAICO) --- */
+        .contentWrapper { flex: 1; padding-top: 5px; }
+        .commercials-section { padding: 0 40px; margin-bottom: 100px; }
         
-        /* --- TEXTO SOBRE EL VIDEO (Esquina inferior izquierda) --- */
-        .banner-caption {
-            position: absolute;
-            bottom: 30px;
-            left: 40px;
-            color: #ffffff;
-            font-size: 16px;
-            z-index: 3;
+        .section-header.divider { 
+            border-top: 1px solid #000; 
+            margin-bottom: 40px; 
         }
-
-        /* --- TÍTULO CENTRADO CON ESPACIO SIMÉTRICO --- */
-        .home-title-centered {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        
+        /* Disposición en cuadrícula de izquierda a derecha */
+        .commercials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px 40px; 
+        }
+        
+        .commercial-entry {
+            display: block;
             width: 100%;
-            margin-top: 40px; /* Distancia exacta hacia arriba (imagen grande) */
-            margin-bottom: 40px; /* Distancia exacta hacia abajo (mosaico pequeño) */
-            border: none;
-        }
-        .home-title-centered h1 {
-            font-size: 18px;
-            font-weight: normal;
-            margin: 0;
-        }
-
-        /* --- SECCIÓN DE MOSAICO (Proyectos en loop) --- */
-        .grid-container { padding: 0 40px; margin-bottom: 100px; }
-        
-        /* Contenedor central para hacer los videos más pequeños */
-        .mosaic-container {
-            max-width: 900px; 
-            margin: 0 auto;
-        }
-
-        /* Cuadrícula a 2 columnas */
-        .entries-grid { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 20px; /* Separación pequeña entre recuadros */
         }
         
-        .entry { display: block; cursor: pointer; }
-        .entry .video-wrapper { 
-            width: 100%; 
+        .commercial-entry a {
+            display: block;
+            cursor: pointer;
+        }
+
+        .commercial-entry .placeholder {
+            width: 100%;
             aspect-ratio: 16 / 9; 
-            background-color: #f2f2f2; 
-            overflow: hidden; 
+            background-color: #f2f2f2;
+            margin-bottom: 12px;
+            overflow: hidden;
             position: relative;
         }
         
-        .entry .video-wrapper video, 
-        .entry .video-wrapper img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: opacity 0.3s ease; 
+        /* Estilos optimizados para los videos locales */
+        .commercial-entry .placeholder video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.3s ease;
         }
         
-        .entry:hover .video-wrapper video,
-        .entry:hover .video-wrapper img { 
-            opacity: 0.8; 
+        .commercial-entry:hover .placeholder video {
+            opacity: 0.85;
+        }
+        
+        .commercial-title {
+            text-align: left;
+            font-size: 15px;
+            font-weight: bold;
         }
         
         /* --- FOOTER SIMPLIFICADO --- */
@@ -149,11 +132,8 @@
             .main-header { padding: 20px; }
             .main-header .container { flex-direction: column; gap: 15px; align-items: flex-start; }
             nav.main { flex-wrap: wrap; gap: 15px; }
-            .full-width-banner { height: 50vh; margin-bottom: 0; }
-            .banner-caption { left: 20px; bottom: 20px; }
-            .home-title-centered { margin-top: 25px; margin-bottom: 25px; } /* Simetría mantenida en celular */
-            .grid-container { padding: 0 20px; margin-bottom: 60px; }
-            .entries-grid { grid-template-columns: 1fr; gap: 15px; }
+            .commercials-section { padding: 0 20px; margin-bottom: 60px; }
+            .commercials-grid { grid-template-columns: 1fr; gap: 40px; } 
             footer.divider { margin: 0 20px; }
         }
     </style>
@@ -163,150 +143,135 @@
         <!-- CABECERA -->
         <header class="main-header">
             <div class="container">
-                <a class="logo" href="/">
+                <a class="logo" href="index.html">
                     <span class="brand-name">Federico Barbabosa</span> 
                     <span class="brand-title">— Cinematographer</span>
                 </a>
                 <nav class="main">
-                    <a href="index.html" class="active">Home</a>
+                    <a href="index.html">Home</a>
                     <a href="cine.html">Features</a>
-                    <a href="comerciales.html">Commercials</a>
+                    <a href="comerciales.html" class="active">Commercials</a>
                     <a href="contacto.html">Contact</a>
                 </nav>
             </div>
         </header>
         
+        <!-- CONTENIDO PRINCIPAL -->
         <div id="contentWrapper" class="contentWrapper">
-            <section class="custom_page">
-                <!-- BANNER ROTATIVO (Hero / Video Background Autoplay) -->
-                <section id="wrapper-banner-rotate">
-                    <div class="full-width-banner">
-                        <div class="video-overlay"></div>
-                        <video class="video-background" autoplay muted loop playsinline>
-                            <source src="reel-fondo.mp4" type="video/mp4">
-                        </video>
-                        <!-- TEXTO EN LA ESQUINA INFERIOR IZQUIERDA -->
-                        <div class="banner-caption">Toyota</div>
-                    </div>
-                </section>
-
-                <!-- SECCIÓN DE PROYECTOS (Mosaico de fragmentos en loop) -->
-                <section id="wrapper-associations">
-                    <div class="associations">
-                        <div id="projects-grid" class="grid-container">
-                            
-                            <!-- TÍTULO CENTRADO CON SIMETRÍA VERTICAL -->
-                            <div class="home-title-centered">
-                                <h1>Home</h1>
+            <section class="commercials-section">
+                <header class="section-header divider"></header>
+                
+                <div class="commercials-grid">
+                    <!-- Video 1 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <video src="./video1.mp4" autoplay loop muted playsinline></video>
                             </div>
-                            
-                            <div class="mosaic-container">
-                                <div class="entries-grid">
-                                    
-                                    <!-- Fragmento 1 -->
-                                    <a href="#" class="entry">
-                                        <div class="video-wrapper">
-                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop1/800/450?grayscale">
-                                                <source src="fragmento1.mp4" type="video/mp4">
-                                            </video>
-                                        </div>
-                                    </a>
-                                    
-                                    <!-- Fragmento 2 -->
-                                    <a href="#" class="entry">
-                                        <div class="video-wrapper">
-                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop2/800/450?grayscale">
-                                                <source src="fragmento2.mp4" type="video/mp4">
-                                            </video>
-                                        </div>
-                                    </a>
-                                    
-                                    <!-- Fragmento 3 -->
-                                    <a href="#" class="entry">
-                                        <div class="video-wrapper">
-                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop3/800/450?grayscale">
-                                                <source src="fragmento3.mp4" type="video/mp4">
-                                            </video>
-                                        </div>
-                                    </a>
-                                    
-                                    <!-- Fragmento 4 -->
-                                    <a href="#" class="entry">
-                                        <div class="video-wrapper">
-                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop4/800/450?grayscale">
-                                                <source src="fragmento4.mp4" type="video/mp4">
-                                            </video>
-                                        </div>
-                                    </a>
-
-                                    <!-- Fragmento 5 -->
-                                    <a href="#" class="entry">
-                                        <div class="video-wrapper">
-                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop5/800/450?grayscale">
-                                                <source src="fragmento5.mp4" type="video/mp4">
-                                            </video>
-                                        </div>
-                                    </a>
-
-                                    <!-- Fragmento 6 -->
-                                    <a href="#" class="entry">
-                                        <div class="video-wrapper">
-                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop6/800/450?grayscale">
-                                                <source src="fragmento6.mp4" type="video/mp4">
-                                            </video>
-                                        </div>
-                                    </a>
-
-                                    <!-- Fragmento 7 -->
-                                    <a href="#" class="entry">
-                                        <div class="video-wrapper">
-                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop7/800/450?grayscale">
-                                                <source src="fragmento7.mp4" type="video/mp4">
-                                            </video>
-                                        </div>
-                                    </a>
-
-                                    <!-- Fragmento 8 -->
-                                    <a href="#" class="entry">
-                                        <div class="video-wrapper">
-                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop8/800/450?grayscale">
-                                                <source src="fragmento8.mp4" type="video/mp4">
-                                            </video>
-                                        </div>
-                                    </a>
-
-                                    <!-- Fragmento 9 -->
-                                    <a href="#" class="entry">
-                                        <div class="video-wrapper">
-                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop9/800/450?grayscale">
-                                                <source src="fragmento9.mp4" type="video/mp4">
-                                            </video>
-                                        </div>
-                                    </a>
-
-                                    <!-- Fragmento 10 -->
-                                    <a href="#" class="entry">
-                                        <div class="video-wrapper">
-                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop10/800/450?grayscale">
-                                                <source src="fragmento10.mp4" type="video/mp4">
-                                            </video>
-                                        </div>
-                                    </a>
-
-                                    <!-- Fragmento 11 (quedará suelto hasta abajo a la izquierda) -->
-                                    <a href="#" class="entry">
-                                        <div class="video-wrapper">
-                                            <video autoplay muted loop playsinline poster="https://picsum.photos/seed/loop11/800/450?grayscale">
-                                                <source src="fragmento11.mp4" type="video/mp4">
-                                            </video>
-                                        </div>
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
+                            <div class="commercial-title">Toyota</div>
+                        </a>
                     </div>
-                </section>
+                    
+                    <!-- Video 2 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <video src="./video2.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                            <div class="commercial-title">Herradura</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Video 3 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <video src="./video3.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                            <div class="commercial-title">Toyota</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Video 4 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <video src="./video4.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                            <div class="commercial-title">Cinépolis</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Video 5 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <video src="./video5.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                            <div class="commercial-title">Nissan</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Video 6 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <video src="./video6.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                            <div class="commercial-title">Toyota</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Video 7 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <video src="./video7.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                            <div class="commercial-title">Marinela</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Video 8 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <video src="./video8.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                            <div class="commercial-title">Loreal</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Video 9 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <video src="./video9.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                            <div class="commercial-title">Manzanita Sol</div>
+                        </a>
+                    </div>
+                    
+                    <!-- Video 10 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <video src="./video10.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                            <div class="commercial-title">Centenario</div>
+                        </a>
+                    </div>
+
+                    <!-- Video 11 -->
+                    <div class="commercial-entry">
+                        <a href="#">
+                            <div class="placeholder">
+                                <video src="./video11.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                            <div class="commercial-title">Título del proyecto</div>
+                        </a>
+                    </div>
+                </div>
             </section>
         </div>
         
@@ -314,7 +279,7 @@
         <footer class="divider" id="contacto">
             <div class="container">
                 <p class="footer-credit">
-                    <strong>Website Design:</strong> Colectivo Monclova
+                    <strong>Diseño de sitio web</strong>, Taller Monclova
                 </p>
             </div>
         </footer>
