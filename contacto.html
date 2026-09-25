@@ -82,7 +82,9 @@
         }
 
         .contact-container {
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Alinea todo a la izquierda */
         }
 
         .contact-title {
@@ -90,15 +92,34 @@
             font-size: 48px;
             font-weight: normal;
             margin-bottom: 15px;
+            text-align: left;
         }
 
         .contact-email {
             font-size: 20px;
             transition: color 0.3s ease;
+            margin-bottom: 30px; /* Separación con los íconos sociales */
         }
 
         .contact-email:hover {
             color: #888888;
+        }
+
+        /* --- REDES SOCIALES --- */
+        .social-links {
+            display: flex;
+            gap: 20px; /* Separación entre Instagram e IMDb */
+        }
+
+        .social-icon {
+            font-size: 16px;
+            font-weight: bold;
+            color: #888888; /* Gris por defecto */
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #000000; /* Se oscurecen al pasar el mouse */
         }
 
         /* --- FOOTER SIMPLIFICADO Y DISCRETO HASTA ABAJO --- */
@@ -156,7 +177,13 @@
         <div id="contentWrapper" class="contentWrapper">
             <section class="contact-container">
                 <h1 class="contact-title">Contact</h1>
-                <a href="mailto:federicobarbabosa@yahoo.com.mx" class="contact-email">federicobarbabosa@yahoo.com.mx</a>
+                <a href="mailto:federicobarbabosa@gmail.com" class="contact-email">federicobarbabosa@gmail.com</a>
+                
+                <!-- ÍCONOS SOCIALES -->
+                <div class="social-links">
+                    <a href="https://www.instagram.com/fedebarba/" target="_blank" rel="noopener noreferrer" class="social-icon">Instagram</a>
+                    <a href="https://www.imdb.com/name/nm0053165/" target="_blank" rel="noopener noreferrer" class="social-icon">IMDb</a>
+                </div>
             </section>
         </div>
     </div>
