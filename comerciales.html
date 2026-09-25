@@ -40,9 +40,9 @@
             width: 100%; 
         }
         
-        /* --- CABECERA (Permanecer fija arriba en la página, no sticky) --- */
+        /* --- CABECERA FIJA ARRIBA (NON-STICKY) --- */
         .main-header { 
-            position: relative; /* Ya no sigue al usuario al hacer scroll */
+            position: relative; 
             width: 100%; 
             background-color: #ffffff; /* Fondo blanco */
             color: #000000; /* Texto negro sobre fondo blanco */
@@ -85,7 +85,7 @@
         .contentWrapper { flex: 1; padding-top: 40px; }
         .commercials-section { padding: 0 40px; margin-bottom: 100px; }
         
-        /* Línea divisoria en blanco/gris para destacar sobre fondo negro */
+        /* Línea divisoria en gris oscuro para destacar sobre fondo negro */
         .section-header.divider { 
             border-top: 1px solid #333333; 
             margin-bottom: 50px; 
@@ -94,8 +94,8 @@
         .commercials-list {
             display: flex;
             flex-direction: column;
-            gap: 80px; /* Separación vertical entre los videos */
-            max-width: 700px; /* Ancho máximo para centrar los placeholders */
+            gap: 90px; /* Separación vertical entre los videos */
+            max-width: 1050px; /* Se aumentó el ancho para hacer los videos más grandes */
             margin: 0 auto; /* Centra el contenedor en la página */
         }
         
@@ -113,7 +113,7 @@
             width: 100%;
             aspect-ratio: 16 / 9; /* Proporción panorámica para video */
             background-color: #1a1a1a;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             overflow: hidden;
             position: relative;
         }
@@ -133,7 +133,7 @@
         
         .commercial-title {
             text-align: left;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: bold;
             color: #ffffff; /* Letras blancas para los títulos */
         }
@@ -166,7 +166,7 @@
             .main-header .container { flex-direction: column; gap: 15px; align-items: flex-start; }
             nav.main { flex-wrap: wrap; gap: 15px; }
             .commercials-section { padding: 0 20px; margin-bottom: 60px; }
-            .commercials-list { gap: 50px; }
+            .commercials-list { gap: 60px; max-width: 100%; }
             footer.bottom-footer { padding: 15px 20px; }
         }
     </style>
@@ -279,7 +279,7 @@
         </div>
     </div> <!-- Cierre de page-container -->
     
-    <!-- FOOTER FUERA DE PAGE-CONTAINER (FONDO NEGRO, LETRAS GRISES/BLANCAS) -->
+    <!-- FOOTER FUERA DE PAGE-CONTAINER -->
     <footer class="bottom-footer" id="contacto">
         <p class="footer-credit">
             <strong>Website Design:</strong> Colectivo Monclova
