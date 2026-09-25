@@ -16,11 +16,29 @@
 
         /* --- ESTILOS BASE --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #000000; background-color: #ffffff; font-size: 14px; line-height: 1.4; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; min-height: 100vh; }
+        body { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            color: #000000; 
+            background-color: #ffffff; 
+            font-size: 14px; 
+            line-height: 1.4; 
+            -webkit-font-smoothing: antialiased; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+        }
         a { text-decoration: none; color: inherit; }
         
         /* --- LIMITADOR DE ANCHO PARA PANTALLAS GRANDES --- */
-        .page-container { max-width: 1400px; margin: 0 auto; background-color: #ffffff; flex: 1; display: flex; flex-direction: column; width: 100%; }
+        .page-container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            background-color: #ffffff; 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            width: 100%; 
+        }
         
         /* --- CABECERA FIJA --- */
         .main-header { position: sticky; top: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); padding: 25px 40px; z-index: 1000; }
@@ -110,24 +128,25 @@
             font-weight: bold;
         }
         
-        /* --- FOOTER SIMPLIFICADO --- */
-        footer.divider { 
-            border-top: 1px solid #000; 
-            margin: 0 40px; 
-            padding: 30px 0; 
-            font-size: 13px; 
-            color: #666;
+        /* --- FOOTER HASTA ABAJO Y DISCRETO (Igual que en index.html) --- */
+        footer.bottom-footer {
+            width: 100%;
+            border-top: 1px solid #e0e0e0;
+            padding: 20px 40px;
+            text-align: center;
         }
         
         .footer-credit {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: normal;
+            font-size: 11px; /* Texto muy discreto */
+            color: #999;
         }
 
         .footer-credit strong {
             font-family: 'Alte Haas Grotesk Bold', sans-serif;
             font-weight: normal;
-            color: #000;
+            color: #777;
         }
         
         /* --- RESPONSIVO --- */
@@ -137,7 +156,7 @@
             nav.main { flex-wrap: wrap; gap: 15px; }
             .commercials-section { padding: 0 20px; margin-bottom: 60px; }
             .commercials-list { gap: 50px; }
-            footer.divider { margin: 0 20px; }
+            footer.bottom-footer { padding: 15px 20px; }
         }
     </style>
 </head>
@@ -165,7 +184,7 @@
                 <header class="section-header divider"></header>
                 
                 <div class="commercials-list">
-                    <!-- Placeholder 1 (Toyota) -->
+                    <!-- Comercial 1 (Toyota) -->
                     <div class="commercial-entry">
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1229741089?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -173,7 +192,7 @@
                         <div class="commercial-title">Toyota</div>
                     </div>
                     
-                    <!-- Placeholder 2 (Herradura) -->
+                    <!-- Comercial 2 (Herradura) -->
                     <div class="commercial-entry">
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1229737238?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -181,7 +200,7 @@
                         <div class="commercial-title">Herradura</div>
                     </div>
                     
-                    <!-- Placeholder 3 (Toyota) -->
+                    <!-- Comercial 3 (Toyota) -->
                     <div class="commercial-entry">
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1229739954?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -189,7 +208,7 @@
                         <div class="commercial-title">Toyota</div>
                     </div>
                     
-                    <!-- Placeholder 4 (Cinépolis) -->
+                    <!-- Comercial 4 (Cinépolis) -->
                     <div class="commercial-entry">
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1229738771?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -197,7 +216,7 @@
                         <div class="commercial-title">Cinépolis</div>
                     </div>
                     
-                    <!-- Placeholder 5 (Nissan) -->
+                    <!-- Comercial 5 (Nissan) -->
                     <div class="commercial-entry">
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1229739199?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -205,7 +224,7 @@
                         <div class="commercial-title">Nissan</div>
                     </div>
                     
-                    <!-- Placeholder 6 (Toyota) -->
+                    <!-- Comercial 6 (Toyota) -->
                     <div class="commercial-entry">
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1229738213?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -213,7 +232,7 @@
                         <div class="commercial-title">Toyota</div>
                     </div>
                     
-                    <!-- Placeholder 7 (Marinela) -->
+                    <!-- Comercial 7 (Marinela) -->
                     <div class="commercial-entry">
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1229741629?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -221,7 +240,7 @@
                         <div class="commercial-title">Marinela</div>
                     </div>
                     
-                    <!-- Placeholder 8 (Loreal) -->
+                    <!-- Comercial 8 (Loreal) -->
                     <div class="commercial-entry">
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1229705975?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -229,7 +248,7 @@
                         <div class="commercial-title">Loreal</div>
                     </div>
                     
-                    <!-- Placeholder 9 (Manzanita Sol con video incrustado 1229742273) -->
+                    <!-- Comercial 9 (Manzanita Sol) -->
                     <div class="commercial-entry">
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1229742273?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -237,7 +256,7 @@
                         <div class="commercial-title">Manzanita Sol</div>
                     </div>
                     
-                    <!-- Placeholder 10 (Centenario con video incrustado 1229742577) -->
+                    <!-- Comercial 10 (Centenario) -->
                     <div class="commercial-entry">
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1229742577?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -247,15 +266,43 @@
                 </div>
             </section>
         </div>
-        
-        <!-- FOOTER SIMPLIFICADO -->
-        <footer class="divider" id="contacto">
-            <div class="container">
-                <p class="footer-credit">
-                    <strong>Website Design:</strong> Colectivo Monclova
-                </p>
-            </div>
-        </footer>
-    </div>
+    </div> <!-- Cierre de page-container -->
+    
+    <!-- FOOTER FUERA DE PAGE-CONTAINER (Para que quede anclado hasta abajo) -->
+    <footer class="bottom-footer" id="contacto">
+        <p class="footer-credit">
+            <strong>Website Design:</strong> Colectivo Monclova
+        </p>
+    </footer>
+
+    <!-- LIBRERÍA OFICIAL DE VIMEO -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    
+    <!-- SCRIPT PARA EVITAR LA PANTALLA DE SUGERENCIAS AL FINAL -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Seleccionamos todos los iframes de la página
+            const iframes = document.querySelectorAll('.commercial-entry iframe');
+            
+            iframes.forEach(function(iframe) {
+                const player = new Vimeo.Player(iframe);
+                let hasReset = false; // Bandera de seguridad
+                
+                // Monitorizamos el tiempo de reproducción
+                player.on('timeupdate', function(data) {
+                    // Si faltan menos de 0.4 segundos para terminar, pausamos y reiniciamos
+                    if (data.duration > 0 && (data.duration - data.seconds) <= 0.4 && !hasReset) {
+                        hasReset = true; 
+                        
+                        player.pause().then(function() {
+                            player.setCurrentTime(0).then(function() {
+                                hasReset = false; 
+                            });
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
