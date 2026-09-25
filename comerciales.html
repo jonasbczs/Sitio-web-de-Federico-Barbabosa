@@ -19,7 +19,7 @@
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             color: #ffffff; /* Texto general en blanco */
-            background-color: #000000; /* Fondo general negro */
+            background-color: #555555; /* Fondo gris de la muestra */
             font-size: 14px; 
             line-height: 1.4; 
             -webkit-font-smoothing: antialiased; 
@@ -33,7 +33,7 @@
         .page-container { 
             max-width: 1400px; 
             margin: 0 auto; 
-            background-color: #000000; /* Fondo negro */
+            background-color: #555555; /* Fondo gris */
             flex: 1; 
             display: flex; 
             flex-direction: column; 
@@ -85,9 +85,9 @@
         .contentWrapper { flex: 1; padding-top: 40px; }
         .commercials-section { padding: 0 40px; margin-bottom: 100px; }
         
-        /* Línea divisoria en gris oscuro para destacar sobre fondo negro */
+        /* Línea divisoria en tono oscuro para destacar sobre el fondo gris */
         .section-header.divider { 
-            border-top: 1px solid #333333; 
+            border-top: 1px solid #3b3b3b; 
             margin-bottom: 50px; 
         }
         
@@ -112,11 +112,11 @@
         .commercial-entry .placeholder {
             width: 100%;
             aspect-ratio: 16 / 9; /* Proporción panorámica para video */
-            background-color: #1a1a1a;
+            background-color: #3b3b3b;
             margin-bottom: 18px;
             overflow: hidden;
             position: relative;
-            border: 1px solid #ffffff; /* Marco blanco muy delgado alrededor del video */
+            /* Marco blanco eliminado */
         }
         
         .commercial-entry .placeholder img,
@@ -139,26 +139,26 @@
             color: #ffffff; /* Letras blancas para los títulos */
         }
         
-        /* --- FOOTER SOBRE FONDO NEGRO --- */
+        /* --- FOOTER SOBRE FONDO GRIS --- */
         footer.bottom-footer {
             width: 100%;
-            border-top: 1px solid #222222;
+            border-top: 1px solid #484848;
             padding: 20px 40px;
             text-align: center;
-            background-color: #000000;
+            background-color: #555555;
         }
         
         .footer-credit {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: normal;
             font-size: 11px;
-            color: #777777;
+            color: #cccccc;
         }
 
         .footer-credit strong {
             font-family: 'Alte Haas Grotesk Bold', sans-serif;
             font-weight: normal;
-            color: #aaaaaa;
+            color: #ffffff;
         }
         
         /* --- RESPONSIVO --- */
@@ -190,7 +190,7 @@
             </div>
         </header>
         
-        <!-- CONTENIDO PRINCIPAL (FONDO NEGRO, LETRAS BLANCAS) -->
+        <!-- CONTENIDO PRINCIPAL -->
         <div id="contentWrapper" class="contentWrapper">
             <section class="commercials-section">
                 <header class="section-header divider"></header>
