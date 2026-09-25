@@ -94,7 +94,7 @@
         .commercials-list {
             display: flex;
             flex-direction: column;
-            gap: 90px; /* Separación vertical entre los videos en computadora */
+            gap: 40px; /* Separación vertical reducida entre los videos */
             max-width: 1050px; /* Ancho amplio para los videos */
             margin: 0 auto; /* Centra el contenedor en la página */
         }
@@ -134,7 +134,7 @@
         
         .commercial-title {
             text-align: left;
-            font-size: 16px; /* Tamaño de letra en computadora */
+            font-size: 16px;
             font-weight: bold;
             color: #ffffff; /* Letras blancas para los títulos */
         }
@@ -161,7 +161,7 @@
             color: #aaaaaa;
         }
         
-        /* --- RESPONSIVO (Exclusivo para celulares y pantallas pequeñas) --- */
+        /* --- RESPONSIVO --- */
         @media (max-width: 768px) {
             .main-header { padding: 20px; }
             .main-header .container { flex-direction: column; gap: 15px; align-items: flex-start; }
@@ -170,7 +170,7 @@
             
             /* Ajustes específicos de espacio y tipografía para celular */
             .commercials-list { 
-                gap: 35px; /* Menor distancia entre los videos */
+                gap: 20px; /* Distancia aún más pequeña entre videos en celular */
                 max-width: 100%; 
             }
             .commercial-title {
