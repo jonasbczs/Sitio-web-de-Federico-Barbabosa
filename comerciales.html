@@ -19,7 +19,7 @@
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             color: #ffffff; /* Texto general en blanco */
-            background-color: #555555; /* Fondo gris de la muestra */
+            background-color: #000000; /* Fondo negro */
             font-size: 14px; 
             line-height: 1.4; 
             -webkit-font-smoothing: antialiased; 
@@ -33,7 +33,7 @@
         .page-container { 
             max-width: 1400px; 
             margin: 0 auto; 
-            background-color: #555555; /* Fondo gris */
+            background-color: #000000; /* Fondo negro */
             flex: 1; 
             display: flex; 
             flex-direction: column; 
@@ -85,10 +85,10 @@
         .contentWrapper { flex: 1; padding-top: 40px; }
         .commercials-section { padding: 0 40px; margin-bottom: 100px; }
         
-        /* Línea divisoria en tono oscuro para destacar sobre el fondo gris */
+        /* Línea divisoria eliminada */
         .section-header.divider { 
-            border-top: 1px solid #3b3b3b; 
-            margin-bottom: 50px; 
+            border: none; 
+            margin-bottom: 20px; 
         }
         
         .commercials-list {
@@ -112,11 +112,11 @@
         .commercial-entry .placeholder {
             width: 100%;
             aspect-ratio: 16 / 9; /* Proporción panorámica para video */
-            background-color: #3b3b3b;
+            background-color: #111111;
             margin-bottom: 18px;
             overflow: hidden;
             position: relative;
-            /* Marco blanco eliminado */
+            border: 1px solid #222222; /* Marco muy sutil, gris casi negro */
         }
         
         .commercial-entry .placeholder img,
@@ -139,26 +139,26 @@
             color: #ffffff; /* Letras blancas para los títulos */
         }
         
-        /* --- FOOTER SOBRE FONDO GRIS --- */
+        /* --- FOOTER SOBRE FONDO NEGRO --- */
         footer.bottom-footer {
             width: 100%;
-            border-top: 1px solid #484848;
+            border-top: 1px solid #1a1a1a;
             padding: 20px 40px;
             text-align: center;
-            background-color: #555555;
+            background-color: #000000;
         }
         
         .footer-credit {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: normal;
             font-size: 11px;
-            color: #cccccc;
+            color: #777777;
         }
 
         .footer-credit strong {
             font-family: 'Alte Haas Grotesk Bold', sans-serif;
             font-weight: normal;
-            color: #ffffff;
+            color: #aaaaaa;
         }
         
         /* --- RESPONSIVO --- */
