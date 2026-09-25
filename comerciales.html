@@ -18,8 +18,8 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-            color: #000000; 
-            background-color: #ffffff; 
+            color: #ffffff; /* Texto general en blanco */
+            background-color: #000000; /* Fondo general negro */
             font-size: 14px; 
             line-height: 1.4; 
             -webkit-font-smoothing: antialiased; 
@@ -33,22 +33,30 @@
         .page-container { 
             max-width: 1400px; 
             margin: 0 auto; 
-            background-color: #ffffff; 
+            background-color: #000000; /* Fondo negro */
             flex: 1; 
             display: flex; 
             flex-direction: column; 
             width: 100%; 
         }
         
-        /* --- CABECERA FIJA --- */
-        .main-header { position: sticky; top: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); padding: 25px 40px; z-index: 1000; }
+        /* --- CABECERA (Permanecer fija arriba en la página, no sticky) --- */
+        .main-header { 
+            position: relative; /* Ya no sigue al usuario al hacer scroll */
+            width: 100%; 
+            background-color: #ffffff; /* Fondo blanco */
+            color: #000000; /* Texto negro sobre fondo blanco */
+            padding: 25px 40px; 
+            z-index: 1000; 
+        }
         .main-header .container { display: flex; justify-content: space-between; align-items: baseline; max-width: 1400px; margin: 0 auto; }
         
-        /* --- APLICANDO LA TIPOGRAFÍA AL LOGO --- */
+        /* --- TIPOGRAFÍA Y TEXTO DEL LOGO EN EL HEADER --- */
         .logo { 
             font-size: 22px; 
             letter-spacing: -0.5px; 
             text-transform: none; 
+            color: #000000;
         }
         
         .logo .brand-name {
@@ -63,22 +71,23 @@
         }
 
         nav.main { display: flex; gap: 25px; }
-        nav.main a { font-size: 16px; transition: color 0.3s ease; }
+        nav.main a { font-size: 16px; color: #000000; transition: color 0.3s ease; }
         nav.main a:hover { color: #888888; }
         
         /* Estilo para la página actual en la navegación */
         nav.main a.active {
             font-family: 'Alte Haas Grotesk Bold', sans-serif;
             font-weight: normal;
+            color: #000000;
         }
 
         /* --- SECCIÓN DE COMERCIALES --- */
-        .contentWrapper { flex: 1; padding-top: 5px; }
+        .contentWrapper { flex: 1; padding-top: 40px; }
         .commercials-section { padding: 0 40px; margin-bottom: 100px; }
         
-        /* Línea divisoria pegada arriba y sin título */
+        /* Línea divisoria en blanco/gris para destacar sobre fondo negro */
         .section-header.divider { 
-            border-top: 1px solid #000; 
+            border-top: 1px solid #333333; 
             margin-bottom: 50px; 
         }
         
@@ -103,7 +112,7 @@
         .commercial-entry .placeholder {
             width: 100%;
             aspect-ratio: 16 / 9; /* Proporción panorámica para video */
-            background-color: #f2f2f2;
+            background-color: #1a1a1a;
             margin-bottom: 15px;
             overflow: hidden;
             position: relative;
@@ -126,27 +135,29 @@
             text-align: left;
             font-size: 15px;
             font-weight: bold;
+            color: #ffffff; /* Letras blancas para los títulos */
         }
         
-        /* --- FOOTER HASTA ABAJO Y DISCRETO (Igual que en index.html) --- */
+        /* --- FOOTER SOBRE FONDO NEGRO --- */
         footer.bottom-footer {
             width: 100%;
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid #222222;
             padding: 20px 40px;
             text-align: center;
+            background-color: #000000;
         }
         
         .footer-credit {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: normal;
-            font-size: 11px; /* Texto muy discreto */
-            color: #999;
+            font-size: 11px;
+            color: #777777;
         }
 
         .footer-credit strong {
             font-family: 'Alte Haas Grotesk Bold', sans-serif;
             font-weight: normal;
-            color: #777;
+            color: #aaaaaa;
         }
         
         /* --- RESPONSIVO --- */
@@ -162,7 +173,7 @@
 </head>
 <body class="s-home detail-page">
     <div class="page-container">
-        <!-- CABECERA -->
+        <!-- CABECERA FIJA ARRIBA (FONDO BLANCO, LETRAS NEGRAS) -->
         <header class="main-header">
             <div class="container">
                 <a class="logo" href="index.html">
@@ -178,7 +189,7 @@
             </div>
         </header>
         
-        <!-- CONTENIDO PRINCIPAL -->
+        <!-- CONTENIDO PRINCIPAL (FONDO NEGRO, LETRAS BLANCAS) -->
         <div id="contentWrapper" class="contentWrapper">
             <section class="commercials-section">
                 <header class="section-header divider"></header>
@@ -268,7 +279,7 @@
         </div>
     </div> <!-- Cierre de page-container -->
     
-    <!-- FOOTER FUERA DE PAGE-CONTAINER (Para que quede anclado hasta abajo) -->
+    <!-- FOOTER FUERA DE PAGE-CONTAINER (FONDO NEGRO, LETRAS GRISES/BLANCAS) -->
     <footer class="bottom-footer" id="contacto">
         <p class="footer-credit">
             <strong>Website Design:</strong> Colectivo Monclova
@@ -281,16 +292,13 @@
     <!-- SCRIPT PARA EVITAR LA PANTALLA DE SUGERENCIAS AL FINAL -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Seleccionamos todos los iframes de la página
             const iframes = document.querySelectorAll('.commercial-entry iframe');
             
             iframes.forEach(function(iframe) {
                 const player = new Vimeo.Player(iframe);
-                let hasReset = false; // Bandera de seguridad
+                let hasReset = false;
                 
-                // Monitorizamos el tiempo de reproducción
                 player.on('timeupdate', function(data) {
-                    // Si faltan menos de 0.4 segundos para terminar, pausamos y reiniciamos
                     if (data.duration > 0 && (data.duration - data.seconds) <= 0.4 && !hasReset) {
                         hasReset = true; 
                         
