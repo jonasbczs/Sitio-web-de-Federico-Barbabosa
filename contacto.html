@@ -19,8 +19,8 @@
         /* La página ocupa el 100% de la altura (100vh) para que el footer se quede abajo */
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-            color: #000000; 
-            background-color: #ffffff; 
+            color: #ffffff; /* Texto general en blanco para contrastar con el fondo negro */
+            background-color: #000000; /* Fondo negro */
             font-size: 14px; 
             line-height: 1.4; 
             -webkit-font-smoothing: antialiased; 
@@ -38,10 +38,18 @@
             justify-content: center; /* Centra el contenido verticalmente */
             align-items: center; /* Centra el contenido horizontalmente */
             width: 100%;
+            background-color: #000000;
         }
         
-        /* --- CABECERA FIJA --- */
-        .main-header { position: absolute; top: 0; left: 0; width: 100%; padding: 25px 40px; z-index: 1000; }
+        /* --- CABECERA FIJA ARRIBA (FONDO BLANCO) --- */
+        .main-header { 
+            position: relative; 
+            width: 100%; 
+            background-color: #ffffff; /* Fondo blanco */
+            color: #000000; /* Texto negro */
+            padding: 25px 40px; 
+            z-index: 1000; 
+        }
         .main-header .container { display: flex; justify-content: space-between; align-items: baseline; max-width: 1400px; margin: 0 auto; }
         
         /* --- APLICANDO LA TIPOGRAFÍA AL LOGO --- */
@@ -49,6 +57,7 @@
             font-size: 22px; 
             letter-spacing: -0.5px; 
             text-transform: none; 
+            color: #000000;
         }
         
         .logo .brand-name {
@@ -63,13 +72,14 @@
         }
 
         nav.main { display: flex; gap: 25px; }
-        nav.main a { font-size: 16px; transition: color 0.3s ease; }
+        nav.main a { font-size: 16px; color: #000000; transition: color 0.3s ease; }
         nav.main a:hover { color: #888888; }
         
         /* Estilo para la página actual en la navegación */
         nav.main a.active {
             font-family: 'Alte Haas Grotesk Bold', sans-serif;
             font-weight: normal;
+            color: #000000;
         }
 
         /* --- SECCIÓN DE CONTACTO (Centrada) --- */
@@ -84,7 +94,8 @@
         .contact-container {
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Alinea todo a la izquierda */
+            align-items: center; /* Vuelve a centrar todo horizontalmente */
+            text-align: center;
         }
 
         .contact-title {
@@ -92,13 +103,14 @@
             font-size: 48px;
             font-weight: normal;
             margin-bottom: 15px;
-            text-align: left;
+            color: #ffffff;
         }
 
         .contact-email {
             font-size: 20px;
             transition: color 0.3s ease;
             margin-bottom: 30px; /* Separación con los íconos sociales */
+            color: #ffffff;
         }
 
         .contact-email:hover {
@@ -108,7 +120,8 @@
         /* --- REDES SOCIALES --- */
         .social-links {
             display: flex;
-            gap: 20px; /* Separación entre Instagram e IMDb */
+            gap: 35px; /* Espacio entre Instagram e IMDb */
+            justify-content: center; /* Centra los enlaces */
         }
 
         .social-icon {
@@ -119,13 +132,14 @@
         }
 
         .social-icon:hover {
-            color: #000000; /* Se oscurecen al pasar el mouse */
+            color: #ffffff; /* Se iluminan a blanco al pasar el mouse */
         }
 
         /* --- FOOTER SIMPLIFICADO Y DISCRETO HASTA ABAJO --- */
         footer.bottom-footer {
             width: 100%;
-            border-top: 1px solid #e0e0e0; /* Línea gris muy tenue (Igual al index) */
+            border-top: 1px solid #1a1a1a; /* Línea gris muy oscura para fondo negro */
+            background-color: #000000;
             padding: 20px 40px;
             text-align: center;
         }
@@ -134,18 +148,18 @@
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: normal;
             font-size: 11px; /* Texto muy discreto */
-            color: #999;
+            color: #777777;
         }
 
         .footer-credit strong {
             font-family: 'Alte Haas Grotesk Bold', sans-serif;
             font-weight: normal;
-            color: #777;
+            color: #aaaaaa;
         }
         
         /* --- RESPONSIVO --- */
         @media (max-width: 768px) {
-            .main-header { padding: 20px; position: static; }
+            .main-header { padding: 20px; position: relative; }
             .main-header .container { flex-direction: column; gap: 15px; align-items: flex-start; }
             nav.main { flex-wrap: wrap; gap: 15px; }
             .contact-title { font-size: 36px; }
@@ -156,12 +170,12 @@
 </head>
 <body class="s-home detail-page">
     
-    <!-- CABECERA -->
+    <!-- CABECERA (FONDO BLANCO, TEXTO NEGRO) -->
     <header class="main-header">
         <div class="container">
             <a class="logo" href="index.html">
                 <span class="brand-name">Federico Barbabosa</span> 
-                <span class="brand-title">Cinematographer</span>
+                <span class="brand-title">— Cinematographer</span>
             </a>
             <nav class="main">
                 <a href="index.html">Home</a>
@@ -172,14 +186,14 @@
         </div>
     </header>
 
-    <!-- CONTENIDO CENTRAL DE CONTACTO -->
+    <!-- CONTENIDO CENTRAL DE CONTACTO (FONDO NEGRO, TEXTO BLANCO) -->
     <div class="page-container">
         <div id="contentWrapper" class="contentWrapper">
             <section class="contact-container">
                 <h1 class="contact-title">Contact</h1>
                 <a href="mailto:federicobarbabosa@gmail.com" class="contact-email">federicobarbabosa@gmail.com</a>
                 
-                <!-- ÍCONOS SOCIALES -->
+                <!-- ÍCONOS SOCIALES (CENTRADOS) -->
                 <div class="social-links">
                     <a href="https://www.instagram.com/fedebarba/" target="_blank" rel="noopener noreferrer" class="social-icon">Instagram</a>
                     <a href="https://www.imdb.com/name/nm0053165/" target="_blank" rel="noopener noreferrer" class="social-icon">IMDb</a>
@@ -188,7 +202,7 @@
         </div>
     </div>
     
-    <!-- FOOTER HASTA ABAJO Y DISCRETO (Igual que en index.html) -->
+    <!-- FOOTER HASTA ABAJO (FONDO NEGRO) -->
     <footer class="bottom-footer">
         <p class="footer-credit">
             <strong>Website Design:</strong> Colectivo Monclova
