@@ -14,9 +14,9 @@
             font-style: normal;
         }
 
-        /* --- ESTILOS BASE --- */
+        /* --- ESTILOS BASE Y TRANSICIÓN DE PÁGINA --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        /* La página ocupa el 100% de la altura (100vh) para que el footer se quede abajo */
+        
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             color: #000000; 
@@ -27,7 +27,22 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            
+            /* Configuración inicial para el efecto de Fade-in / Fade-out */
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
         }
+
+        /* Clase que se activa al cargar la página para hacer el fade-in */
+        body.loaded {
+            opacity: 1;
+        }
+
+        /* Clase que se activa al hacer clic en un enlace para hacer el fade-out */
+        body.fade-out {
+            opacity: 0;
+        }
+
         a { text-decoration: none; color: inherit; }
         
         /* --- CONTENEDOR CENTRAL --- */
@@ -144,5 +159,32 @@
         </p>
     </footer>
 
+    <!-- SCRIPT PARA LAS TRANSICIONES FADE-IN Y FADE-OUT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efecto Fade-in al cargar la página
+            document.body.classList.add('loaded');
+
+            // Interceptar clics en los enlaces de navegación y logotipo para el Fade-out
+            const links = document.querySelectorAll('nav.main a, a.logo');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetUrl = this.getAttribute('href');
+                    
+                    // Asegurarse de que es un enlace interno válido
+                    if (targetUrl && targetUrl !== '#' && !targetUrl.startsWith('mailto:')) {
+                        e.preventDefault(); // Evitar el salto inmediato
+                        document.body.classList.add('fade-out'); // Activar desvanecimiento
+                        
+                        // Esperar a que termine la animación (400ms) antes de cambiar de página
+                        setTimeout(function() {
+                            window.location.href = targetUrl;
+                        }, 400);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
