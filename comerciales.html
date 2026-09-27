@@ -14,8 +14,9 @@
             font-style: normal;
         }
 
-        /* --- ESTILOS BASE --- */
+        /* --- ESTILOS BASE Y TRANSICIÓN DE PÁGINA --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             color: #ffffff; /* Texto general en blanco */
@@ -26,7 +27,20 @@
             display: flex; 
             flex-direction: column; 
             min-height: 100vh; 
+            
+            /* Configuración inicial para el efecto de Fade-in / Fade-out */
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
         }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        body.fade-out {
+            opacity: 0;
+        }
+
         a { text-decoration: none; color: inherit; }
         
         /* --- LIMITADOR DE ANCHO PARA PANTALLAS GRANDES --- */
@@ -40,18 +54,18 @@
             width: 100%; 
         }
         
-        /* --- CABECERA FIJA ARRIBA (NON-STICKY) --- */
+        /* --- CABECERA FIJA ARRIBA --- */
         .main-header { 
             position: relative; 
             width: 100%; 
             background-color: #ffffff; /* Fondo blanco */
-            color: #000000; /* Texto negro sobre fondo blanco */
+            color: #000000; /* Texto negro */
             padding: 25px 40px; 
             z-index: 1000; 
         }
         .main-header .container { display: flex; justify-content: space-between; align-items: baseline; max-width: 1400px; margin: 0 auto; }
         
-        /* --- TIPOGRAFÍA Y TEXTO DEL LOGO EN EL HEADER --- */
+        /* --- APLICANDO LA TIPOGRAFÍA AL LOGO --- */
         .logo { 
             font-size: 22px; 
             letter-spacing: -0.5px; 
@@ -81,11 +95,10 @@
             color: #000000;
         }
 
-        /* --- SECCIÓN DE COMERCIALES --- */
+        /* --- SECCIÓN DE COMERCIALES (Columna Centrada) --- */
         .contentWrapper { flex: 1; padding-top: 40px; }
         .commercials-section { padding: 0 40px; margin-bottom: 100px; }
         
-        /* Línea divisoria eliminada */
         .section-header.divider { 
             border: none; 
             margin-bottom: 20px; 
@@ -94,8 +107,8 @@
         .commercials-list {
             display: flex;
             flex-direction: column;
-            gap: 40px; /* Separación vertical reducida entre los videos */
-            max-width: 1050px; /* Ancho amplio para los videos */
+            gap: 60px; /* Separación vertical entre los videos */
+            max-width: 1050px; /* Ancho amplio para los videos alineado al estilo de cine.html */
             margin: 0 auto; /* Centra el contenedor en la página */
         }
         
@@ -104,32 +117,21 @@
             width: 100%;
         }
         
-        .commercial-entry a {
-            display: block;
-            cursor: pointer;
-        }
-
         .commercial-entry .placeholder {
             width: 100%;
             aspect-ratio: 16 / 9; /* Proporción panorámica para video */
             background-color: #111111;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
             overflow: hidden;
             position: relative;
-            border: 1px solid #222222; /* Marco muy sutil, gris casi negro */
+            border: 1px solid #222222; /* Marco sutil y elegante */
         }
         
-        .commercial-entry .placeholder img,
         .commercial-entry .placeholder iframe {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border: none;
-            transition: opacity 0.3s ease;
-        }
-        
-        .commercial-entry a:hover .placeholder img {
-            opacity: 0.8;
         }
         
         .commercial-title {
@@ -168,13 +170,12 @@
             nav.main { flex-wrap: wrap; gap: 15px; }
             .commercials-section { padding: 0 20px; margin-bottom: 60px; }
             
-            /* Ajustes específicos de espacio y tipografía para celular */
             .commercials-list { 
-                gap: 20px; /* Distancia aún más pequeña entre videos en celular */
+                gap: 40px; 
                 max-width: 100%; 
             }
             .commercial-title {
-                font-size: 13px; /* Letra del título más pequeña en celular */
+                font-size: 13px;
             }
             
             footer.bottom-footer { padding: 15px 20px; }
@@ -183,7 +184,7 @@
 </head>
 <body class="s-home detail-page">
     <div class="page-container">
-        <!-- CABECERA FIJA ARRIBA (FONDO BLANCO, LETRAS NEGRAS) -->
+        <!-- CABECERA FIJA ARRIBA -->
         <header class="main-header">
             <div class="container">
                 <a class="logo" href="index.html">
@@ -205,91 +206,57 @@
                 <header class="section-header divider"></header>
                 
                 <div class="commercials-list">
-                    <!-- Comercial 1 (Toyota) -->
+                    
+                    <!-- 1. TV Azteca -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229741089?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://player.vimeo.com/video/1230591783?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                        <div class="commercial-title">Toyota</div>
+                        <div class="commercial-title">TV Azteca</div>
                     </div>
                     
-                    <!-- Comercial 2 (Herradura) -->
+                    <!-- 2. Domino -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229737238?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="https://player.vimeo.com/video/1230592171?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                        <div class="commercial-title">Herradura</div>
+                        <div class="commercial-title">Domino</div>
                     </div>
                     
-                    <!-- Comercial 3 (Toyota) -->
+                    <!-- ESPACIO DE RELLENO (Puedes agregar otros comerciales aquí si los tienes) -->
+                    <!-- 
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229739954?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <iframe src="..." width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
                         </div>
-                        <div class="commercial-title">Toyota</div>
-                    </div>
-                    
-                    <!-- Comercial 4 (Cinépolis) -->
+                        <div class="commercial-title">Otro Comercial</div>
+                    </div> 
+                    -->
+
+                    <!-- PENÚLTIMO: Centenario -->
                     <div class="commercial-entry">
                         <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229738771?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="commercial-title">Cinépolis</div>
-                    </div>
-                    
-                    <!-- Comercial 5 (Nissan) -->
-                    <div class="commercial-entry">
-                        <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229739199?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="commercial-title">Nissan</div>
-                    </div>
-                    
-                    <!-- Comercial 6 (Toyota) -->
-                    <div class="commercial-entry">
-                        <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229738213?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="commercial-title">Toyota</div>
-                    </div>
-                    
-                    <!-- Comercial 7 (Marinela) -->
-                    <div class="commercial-entry">
-                        <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229741629?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="commercial-title">Marinela</div>
-                    </div>
-                    
-                    <!-- Comercial 8 (Loreal) -->
-                    <div class="commercial-entry">
-                        <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229705975?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="commercial-title">Loreal</div>
-                    </div>
-                    
-                    <!-- Comercial 9 (Manzanita Sol) -->
-                    <div class="commercial-entry">
-                        <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229742273?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="commercial-title">Manzanita Sol</div>
-                    </div>
-                    
-                    <!-- Comercial 10 (Centenario) -->
-                    <div class="commercial-entry">
-                        <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1229742577?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            <!-- Sustituye ID_CENTENARIO por el código real -->
+                            <iframe src="https://player.vimeo.com/video/ID_CENTENARIO?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="commercial-title">Centenario</div>
                     </div>
+                    
+                    <!-- ÚLTIMO: Manzanita -->
+                    <div class="commercial-entry">
+                        <div class="placeholder">
+                            <!-- Sustituye ID_MANZANITA por el código real -->
+                            <iframe src="https://player.vimeo.com/video/ID_MANZANITA?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="commercial-title">Manzanita</div>
+                    </div>
+
                 </div>
             </section>
         </div>
-    </div> <!-- Cierre de page-container -->
+    </div>
     
-    <!-- FOOTER FUERA DE PAGE-CONTAINER -->
+    <!-- FOOTER -->
     <footer class="bottom-footer" id="contacto">
         <p class="footer-credit">
             <strong>Website Design:</strong> Colectivo Monclova
@@ -299,9 +266,31 @@
     <!-- LIBRERÍA OFICIAL DE VIMEO -->
     <script src="https://player.vimeo.com/api/player.js"></script>
     
-    <!-- SCRIPT PARA EVITAR LA PANTALLA DE SUGERENCIAS AL FINAL -->
+    <!-- SCRIPT PARA LAS TRANSICIONES FADE-IN Y FADE-OUT -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Activa el fade-in al cargar la página
+            document.body.classList.add('loaded');
+
+            // Intercepta los clics en el menú y el logo para el fade-out
+            const links = document.querySelectorAll('nav.main a, a.logo');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetUrl = this.getAttribute('href');
+                    
+                    if (targetUrl && targetUrl !== '#' && !targetUrl.startsWith('mailto:')) {
+                        e.preventDefault(); 
+                        document.body.classList.add('fade-out'); 
+                        
+                        setTimeout(function() {
+                            window.location.href = targetUrl;
+                        }, 400);
+                    }
+                });
+            });
+            
+            // SCRIPT PARA REINICIAR CADA VIDEO AL FINAL
             const iframes = document.querySelectorAll('.commercial-entry iframe');
             
             iframes.forEach(function(iframe) {
