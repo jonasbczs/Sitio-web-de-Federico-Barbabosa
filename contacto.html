@@ -16,7 +16,6 @@
 
         /* --- ESTILOS BASE --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        /* La página ocupa el 100% de la altura (100vh) para que el footer se quede abajo */
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             color: #ffffff; /* Texto general en blanco para contrastar con el fondo negro */
@@ -32,7 +31,7 @@
         
         /* --- CONTENEDOR CENTRAL --- */
         .page-container { 
-            flex: 1; /* Empuja el footer hacia abajo */
+            flex: 1; 
             display: flex;
             flex-direction: column;
             justify-content: center; /* Centra el contenido verticalmente */
@@ -136,28 +135,6 @@
         .social-icon:hover {
             color: #ffffff; /* Se ilumina a blanco al pasar el cursor */
         }
-
-        /* --- FOOTER SIMPLIFICADO Y DISCRETO HASTA ABAJO --- */
-        footer.bottom-footer {
-            width: 100%;
-            border-top: 1px solid #1a1a1a; /* Línea gris muy oscura para fondo negro */
-            background-color: #000000;
-            padding: 20px 40px;
-            text-align: center;
-        }
-        
-        .footer-credit {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-weight: normal;
-            font-size: 11px; /* Texto muy discreto */
-            color: #777777;
-        }
-
-        .footer-credit strong {
-            font-family: 'Alte Haas Grotesk Bold', sans-serif;
-            font-weight: normal;
-            color: #aaaaaa;
-        }
         
         /* --- RESPONSIVO --- */
         @media (max-width: 768px) {
@@ -166,7 +143,6 @@
             nav.main { flex-wrap: wrap; gap: 15px; }
             .contact-title { font-size: 36px; }
             .contact-email { font-size: 18px; }
-            footer.bottom-footer { padding: 15px 20px; }
         }
     </style>
 </head>
@@ -203,13 +179,6 @@
             </section>
         </div>
     </div>
-    
-    <!-- FOOTER HASTA ABAJO (FONDO NEGRO) -->
-    <footer class="bottom-footer">
-        <p class="footer-credit">
-            <strong>Website Design:</strong> Colectivo Monclova
-        </p>
-    </footer>
 
 </body>
 </html>
