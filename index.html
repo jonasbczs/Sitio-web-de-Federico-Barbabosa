@@ -6,10 +6,17 @@
     <title>Federico Barbabosa — Cinematographer</title>
     
     <style>
-        /* --- DECLARACIÓN DE LA TIPOGRAFÍA PERSONALIZADA --- */
+        /* --- DECLARACIÓN DE LAS TIPOGRAFÍAS PERSONALIZADAS --- */
         @font-face {
             font-family: 'Alte Haas Grotesk Bold';
             src: url('AlteHaasGroteskBold.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Alte Haas Grotesk Regular';
+            src: url('AlteHaasGroteskRegular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -73,7 +80,7 @@
         }
 
         .logo .brand-title {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Alte Haas Grotesk Regular', sans-serif; /* APLICANDO LA NUEVA TIPOGRAFÍA REGULAR */
             font-weight: normal;
             font-size: 32px; 
             color: #333; /* Un gris oscuro para darle jerarquía visual */
@@ -175,19 +182,17 @@
             // Efecto Fade-in al cargar la página
             document.body.classList.add('loaded');
 
-            // Interceptar clics en todos los enlaces del menú (Home, Features, Commercials, Contact) y el logotipo
+            // Interceptar clics en todos los enlaces del menú y el logotipo
             const links = document.querySelectorAll('nav.main a, a.logo');
             
             links.forEach(link => {
                 link.addEventListener('click', function(e) {
                     const targetUrl = this.getAttribute('href');
                     
-                    // Asegurarse de que es un enlace interno válido
                     if (targetUrl && targetUrl !== '#' && !targetUrl.startsWith('mailto:') && !targetUrl.startsWith('http')) {
-                        e.preventDefault(); // Evitar el salto inmediato
-                        document.body.classList.add('fade-out'); // Activar desvanecimiento
+                        e.preventDefault(); 
+                        document.body.classList.add('fade-out'); 
                         
-                        // Esperar a que termine la animación (400ms) antes de cambiar de página
                         setTimeout(function() {
                             window.location.href = targetUrl;
                         }, 400);
