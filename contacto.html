@@ -14,8 +14,9 @@
             font-style: normal;
         }
 
-        /* --- ESTILOS BASE --- */
+        /* --- ESTILOS BASE Y TRANSICIÓN FADE-IN / FADE-OUT --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             color: #ffffff; /* Texto general en blanco para contrastar con el fondo negro */
@@ -26,7 +27,22 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+
+            /* Estado inicial transparente para la transición */
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
         }
+
+        /* Clase que activa la visibilidad suave al cargar */
+        body.loaded {
+            opacity: 1;
+        }
+
+        /* Clase que desvanece la página al cambiar de sección */
+        body.fade-out {
+            opacity: 0;
+        }
+
         a { text-decoration: none; color: inherit; }
         
         /* --- CONTENEDOR CENTRAL --- */
@@ -180,5 +196,30 @@
         </div>
     </div>
 
+    <!-- SCRIPT PARA EL EFECTO FADE-IN / FADE-OUT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Activa el fade-in al cargar la página
+            document.body.classList.add('loaded');
+
+            // 2. Intercepta clics en enlaces para ejecutar el fade-out antes de navegar
+            const links = document.querySelectorAll('nav.main a, a.logo');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetUrl = this.getAttribute('href');
+                    
+                    if (targetUrl && targetUrl !== '#' && !targetUrl.startsWith('mailto:')) {
+                        e.preventDefault(); 
+                        document.body.classList.add('fade-out'); 
+                        
+                        setTimeout(function() {
+                            window.location.href = targetUrl;
+                        }, 400); // 400ms coincide con la duración en CSS
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
