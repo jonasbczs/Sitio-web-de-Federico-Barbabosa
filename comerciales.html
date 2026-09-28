@@ -175,6 +175,16 @@
             font-weight: normal;
             color: #aaaaaa;
         }
+
+        /* Estilos para el enlace de Instagram en el footer */
+        .footer-credit a {
+            color: #777777;
+            transition: color 0.3s ease;
+        }
+
+        .footer-credit a:hover {
+            color: #ffffff; /* Se ilumina en blanco al pasar el cursor (por ser fondo negro) */
+        }
         
         /* --- RESPONSIVO --- */
         @media (max-width: 768px) {
@@ -315,7 +325,7 @@
     <!-- FOOTER FUERA DE PAGE-CONTAINER -->
     <footer class="bottom-footer" id="contacto">
         <p class="footer-credit">
-            <strong>Website Design:</strong> Colectivo Monclova
+            <strong>Website Design:</strong> <a href="https://www.instagram.com/tallermonclova/" target="_blank" rel="noopener noreferrer">Colectivo Monclova</a>
         </p>
     </footer>
 
@@ -335,7 +345,7 @@
                 link.addEventListener('click', function(e) {
                     const targetUrl = this.getAttribute('href');
                     
-                    if (targetUrl && targetUrl !== '#' && !targetUrl.startsWith('mailto:')) {
+                    if (targetUrl && targetUrl !== '#' && !targetUrl.startsWith('mailto:') && !targetUrl.startsWith('http')) {
                         e.preventDefault(); 
                         document.body.classList.add('fade-out'); 
                         
