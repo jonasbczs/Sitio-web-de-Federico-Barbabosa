@@ -14,8 +14,9 @@
             font-style: normal;
         }
 
-        /* --- ESTILOS BASE --- */
+        /* --- ESTILOS BASE Y TRANSICIÓN FADE-IN / FADE-OUT --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             color: #ffffff; /* Texto general en blanco */
@@ -26,7 +27,22 @@
             display: flex; 
             flex-direction: column; 
             min-height: 100vh; 
+            
+            /* Estado inicial transparente para el efecto fade-in / fade-out */
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
         }
+
+        /* Clase que activa la visibilidad al cargar la página */
+        body.loaded {
+            opacity: 1;
+        }
+
+        /* Clase que desvanece la página al hacer clic en un enlace */
+        body.fade-out {
+            opacity: 0;
+        }
+
         a { text-decoration: none; color: inherit; }
         
         /* --- LIMITADOR DE ANCHO PARA PANTALLAS GRANDES --- */
@@ -85,7 +101,6 @@
         .contentWrapper { flex: 1; padding-top: 40px; }
         .commercials-section { padding: 0 40px; margin-bottom: 100px; }
         
-        /* Línea divisoria eliminada */
         .section-header.divider { 
             border: none; 
             margin-bottom: 20px; 
@@ -168,13 +183,12 @@
             nav.main { flex-wrap: wrap; gap: 15px; }
             .commercials-section { padding: 0 20px; margin-bottom: 60px; }
             
-            /* Ajustes específicos de espacio y tipografía para celular */
             .commercials-list { 
-                gap: 20px; /* Distancia aún más pequeña entre videos en celular */
+                gap: 20px; 
                 max-width: 100%; 
             }
             .commercial-title {
-                font-size: 13px; /* Letra del título más pequeña en celular */
+                font-size: 13px; 
             }
             
             footer.bottom-footer { padding: 15px 20px; }
@@ -261,7 +275,7 @@
                         <div class="commercial-title">Marinela</div>
                     </div>
                     
-                    <!-- Comercial 8 (TV Azteca - Reemplaza a Loreal) -->
+                    <!-- Comercial 8 (TV Azteca) -->
                     <div class="commercial-entry">
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1230591783?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -269,7 +283,7 @@
                         <div class="commercial-title">TV Azteca</div>
                     </div>
 
-                    <!-- Comercial 9 (Domino - Agregado abajo de TV Azteca) -->
+                    <!-- Comercial 9 (Domino) -->
                     <div class="commercial-entry">
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1230592171?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -277,7 +291,7 @@
                         <div class="commercial-title">Domino</div>
                     </div>
                     
-                    <!-- Comercial 10 (Centenario - Penúltimo) -->
+                    <!-- Comercial 10 (Centenario) -->
                     <div class="commercial-entry">
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1229742577?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -285,7 +299,7 @@
                         <div class="commercial-title">Centenario</div>
                     </div>
 
-                    <!-- Comercial 11 (Manzanita Sol - Último) -->
+                    <!-- Comercial 11 (Manzanita Sol) -->
                     <div class="commercial-entry">
                         <div class="placeholder">
                             <iframe src="https://player.vimeo.com/video/1229742273?title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -308,9 +322,31 @@
     <!-- LIBRERÍA OFICIAL DE VIMEO -->
     <script src="https://player.vimeo.com/api/player.js"></script>
     
-    <!-- SCRIPT PARA EVITAR LA PANTALLA DE SUGERENCIAS AL FINAL -->
+    <!-- SCRIPT PARA FADE-IN / FADE-OUT Y AUTO-RESET DE VIDEOS -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // 1. Efecto Fade-in al cargar la página
+            document.body.classList.add('loaded');
+
+            // 2. Interceptar navegación para activar Fade-out antes de cambiar de página
+            const links = document.querySelectorAll('nav.main a, a.logo');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetUrl = this.getAttribute('href');
+                    
+                    if (targetUrl && targetUrl !== '#' && !targetUrl.startsWith('mailto:')) {
+                        e.preventDefault(); 
+                        document.body.classList.add('fade-out'); 
+                        
+                        setTimeout(function() {
+                            window.location.href = targetUrl;
+                        }, 400); // Coincide con la duración en CSS (0.4s)
+                    }
+                });
+            });
+
+            // 3. Reinicio de videos de Vimeo antes de mostrar recomendaciones
             const iframes = document.querySelectorAll('.commercial-entry iframe');
             
             iframes.forEach(function(iframe) {
