@@ -118,6 +118,11 @@
             position: relative;
             border: 1px solid #222222; 
         }
+
+        /* --- NUEVA CLASE PARA VIDEOS CON PROPORCIÓN DIFERENTE --- */
+        .commercial-entry .placeholder.ultrawide {
+            aspect-ratio: 21 / 9; /* Cambia esto si la proporción es diferente, ej: 4 / 3 o 2.35 / 1 */
+        }
         
         .commercial-entry .placeholder iframe {
             width: 100%;
@@ -245,18 +250,18 @@
                         <div class="commercial-title">Marinela</div>
                     </div>
                     
-                    <!-- Comercial 8 (TV Azteca) -->
+                    <!-- Comercial 8 (TV Azteca) CON CLASE ULTRAWIDE Y PLAYSINLINE -->
                     <div class="commercial-entry">
-                        <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1235539273?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        <div class="placeholder ultrawide">
+                            <iframe src="https://player.vimeo.com/video/1235539273?title=0&byline=0&portrait=0&playsinline=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="commercial-title">TV Azteca</div>
                     </div>
 
-                    <!-- Comercial 9 (Domino) -->
+                    <!-- Comercial 9 (Domino) CON CLASE ULTRAWIDE Y PLAYSINLINE -->
                     <div class="commercial-entry">
-                        <div class="placeholder">
-                            <iframe src="https://player.vimeo.com/video/1235537988?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        <div class="placeholder ultrawide">
+                            <iframe src="https://player.vimeo.com/video/1235537988?title=0&byline=0&portrait=0&playsinline=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="commercial-title">Domino</div>
                     </div>
